@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/prize_pool"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dim_30dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/dim_30dp"
+        android:text="Prize Pool"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dim_17sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/entry"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dim_30dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:gravity="center_vertical"
+        android:layout_marginRight="@dimen/dim_30dp"
+        android:text="Entry"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dim_17sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_40dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/prize_pool">
+
+        <TextView
+            android:id="@+id/currency_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dim_17sp"
+            android:textStyle="bold"
+            android:text="@string/Rs"
+            android:layout_marginLeft="@dimen/dim_30dp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dim_5dp"
+            android:text="8000"
+            android:textSize="@dimen/dim_17sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/currency_symbol"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/currency_symbol_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dim_5dp"
+            android:textColor="@color/black"
+            android:text="Crores"
+            android:textSize="@dimen/dim_17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/price"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/entry_price"
+            android:layout_width="@dimen/dim_70dp"
+            android:layout_height="@dimen/dim_25dp"
+            android:background="@drawable/curve_fill_green_"
+            android:gravity="center"
+            android:text="49"
+            android:textColor="@color/white"
+            android:layout_marginRight="@dimen/dim_20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/spot_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:max="100"
+        android:progress="50"
+        android:thumbTint="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@+id/layout2" />
+
+
+    <TextView
+        android:id="@+id/spots_left"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dim_20dp"
+        android:layout_marginLeft="@dimen/dim_50dp"
+        android:layout_marginTop="@dimen/dim_20dp"
+        android:background="@drawable/curve_border"
+        android:gravity="center"
+        android:padding="@dimen/dim_5dp"
+        android:text="5000 spots left"
+        android:textSize="@dimen/dim_8sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/total_spots"
+        app:layout_constraintTop_toBottomOf="@+id/spot_progress" />
+
+    <TextView
+        android:id="@+id/total_spots"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dim_20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="@dimen/dim_20dp"
+        android:layout_marginRight="@dimen/dim_50dp"
+        android:background="@drawable/curve_border"
+        android:gravity="center"
+        android:padding="@dimen/dim_5dp"
+        android:text="10,000 Spots "
+        android:textSize="@dimen/dim_8sp"
+        app:layout_constraintLeft_toRightOf="@+id/spots_left"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spot_progress" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_25dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@id/spots_left">
+
+        <ImageView
+            android:id="@+id/cup_img"
+            android:layout_width="15dp"
+            android:layout_height="@dimen/dim_15dp"
+            android:layout_marginRight="@dimen/dim_5dp"
+            android:background="@drawable/winning_cup_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/winning_price"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/winning_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dim_7dp"
+            android:text="14,989,000"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/cup_img"
+            app:layout_constraintRight_toLeftOf="@+id/text"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dim_10dp"
+            android:text="inners"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/winning_price"
+            app:layout_constraintRight_toLeftOf="@+id/drop_down_img"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/drop_down_img"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_menu_gallery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/text"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_5dp"
+        app:layout_constraintTop_toBottomOf="@+id/layout1">
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/price_break_layout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_marginLeft="@dimen/dim_20dp"
+            app:cardCornerRadius="@dimen/dim_5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/leaderboard_bt"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/price_break_bt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Prize Breakup" />
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/leaderboard_bt"
+            android:layout_width="@dimen/dim_0dp"
+            android:layout_height="@dimen/dim_50dp"
+            android:layout_marginLeft="@dimen/dim_20dp"
+            android:layout_marginRight="@dimen/dim_20dp"
+            android:gravity="center"
+            android:text="Leaderboard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/price_break_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <View
+        android:id="@+id/margin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dim_5dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/layout4" />
+
+    <TextView
+        android:id="@+id/rank_v"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dim_20dp"
+        android:text="Rank"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/margin_layout" />
+
+
+    <TextView
+        android:id="@+id/price_v"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginRight="@dimen/dim_20dp"
+        android:text="Prize"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/margin_layout" />
+
+    <View
+        android:id="@+id/margin_layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        app:layout_constraintTop_toBottomOf="@+id/price_v" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rank_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_0dp"
+        android:layout_marginTop="@dimen/dim_10dp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@id/price_v">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <FrameLayout
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_50dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <Button
+            android:id="@+id/join_contest_bt"
+            android:layout_width="@dimen/dim_120dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dim_10dp"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/curve_outline"
+            android:text="Join Contest"
+            android:textSize="@dimen/dim_12sp" />
+
+    </FrameLayout>
+
+
+</android.support.constraint.ConstraintLayout>

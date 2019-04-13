@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.loginFragment.LoginFragment">
+
+    <RelativeLayout
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="216dp"
+            android:layout_height="@dimen/measure_86dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/measure_36dp"
+            android:src="@drawable/mad_move_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/measure_36dp"
+            android:text="@string/login"
+            android:textColor="@color/colorWhite"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorWhite"
+        android:padding="@dimen/measure_36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_view">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/bt_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_margin="@dimen/dim_5dp"
+            app:cardCornerRadius="@dimen/dim_10dp">
+
+            <EditText
+                android:id="@+id/mobile_numberTIEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:hint="@string/mobile_number">
+
+            </EditText>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/bt_layout2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_40dp"
+            android:layout_below="@+id/bt_layout1"
+            android:layout_margin="@dimen/dim_5dp"
+            android:layout_marginBottom="@dimen/dim_20dp"
+            app:cardCornerRadius="@dimen/dim_10dp">
+
+            <EditText
+                android:id="@+id/password_TIEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:gravity="center"
+                android:hint="@string/password">
+
+            </EditText>
+        </android.support.v7.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/forget_password_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bt_layout2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/measure_10dp"
+            android:text="@string/forget_password"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/measure_14sp"
+            android:textStyle="bold" />
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="@dimen/dim_100dp"
+            android:layout_below="@+id/forget_password_tv"
+            android:layout_centerHorizontal="true"
+            app:cardCornerRadius="@dimen/dim_10dp"
+            android:layout_marginTop="@dimen/dim_30dp"
+            android:layout_height="@dimen/dim_40dp">
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="@string/login"
+                android:textColor="@color/colorPrimary" />
+
+        </android.support.v7.widget.CardView>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dim_20dp"
+        android:gravity="end"
+        android:text="Don\'t have an Account?  "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/create_account_tv" />
+
+
+    <TextView
+        android:id="@+id/create_account_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dim_20dp"
+        android:text="@string/create_account"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tv1"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

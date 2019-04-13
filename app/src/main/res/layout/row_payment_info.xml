@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dim_70dp"
+    android:paddingLeft="@dimen/dim_20dp"
+    android:paddingRight="@dimen/dim_20dp">
+
+    <ImageView
+        android:id="@+id/payment_img"
+        android:layout_width="@dimen/dim_50dp"
+        android:layout_height="@dimen/dim_50dp"
+        android:layout_marginLeft="@dimen/dim_10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/payment_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/payment_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Wallet"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/dim_17sp"
+        app:layout_constraintBottom_toTopOf="@+id/margin_layout"
+        app:layout_constraintLeft_toRightOf="@+id/payment_img"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:id="@+id/margin_layout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        android:layout_marginLeft="@dimen/dim_80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

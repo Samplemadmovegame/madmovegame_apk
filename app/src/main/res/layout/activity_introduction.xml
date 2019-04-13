@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:padding="@dimen/dim_10dp"
+    tools:context=".intro.IntroductionActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/introduction_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_100dp"
+        android:text="hello"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/logo_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dim_50dp"
+        android:layout_marginRight="@dimen/dim_50dp"
+        android:src="@drawable/mad_move_logo"
+        android:transitionName="logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/dim_10dp"
+        android:layout_marginRight="@dimen/dim_10dp"
+        android:layout_marginBottom="160dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/cricket_img"
+            android:layout_width="@dimen/dim_0dp"
+            android:layout_height="@dimen/dim_90dp"
+            android:layout_marginRight="@dimen/dim_10dp"
+            android:alpha="0.3"
+            android:background="@drawable/cricket_skip_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/football_img"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/football_img"
+            android:layout_width="@dimen/dim_0dp"
+            android:layout_height="@dimen/dim_90dp"
+            android:layout_marginRight="@dimen/dim_10dp"
+            android:alpha="0.3"
+            android:background="@drawable/foodball_skip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/cricket_img"
+            app:layout_constraintRight_toLeftOf="@+id/baseball_img"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/baseball_img"
+            android:layout_width="@dimen/dim_0dp"
+            android:layout_height="@dimen/dim_90dp"
+            android:layout_marginRight="@dimen/dim_10dp"
+            android:alpha="0.3"
+            android:background="@drawable/basketball_skip_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/football_img"
+            app:layout_constraintRight_toLeftOf="@+id/hockey_img"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/hockey_img"
+            android:layout_width="@dimen/dim_0dp"
+            android:layout_height="@dimen/dim_90dp"
+            android:background="@drawable/hockey_skip"
+            android:alpha="0.3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/baseball_img"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/skip_button"
+        android:layout_width="@dimen/dim_60dp"
+        android:layout_height="@dimen/dim_30dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="@dimen/measure_86dp"
+        android:background="@drawable/skip_button_backgroud"
+        android:text="@string/skip"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

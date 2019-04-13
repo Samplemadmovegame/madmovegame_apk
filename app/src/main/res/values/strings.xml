@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">MadMoveGame</string>
+
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="intro_1">Welcome to MADMOVE GAMES</string>
+    <string name="intro_2">We Predict, You Win</string>
+    <string name="intro_3">Freely Available</string>
+    <string name="intro_4">Keep up to date!</string>
+    <string name="bottom_1">Best Prediction app available helping you free</string>
+    <string name="bottom_2">Need Predictions,tip? You are at right place. We poat predictions regularly for Every Match</string>
+    <string name="bottom_3">We provide All PRO Prediction/tips for FREE</string>
+    <string name="bottom_4">Get Notified for injured, Unavailable players and never loss</string>
+
+    <string name="skip">SKIP</string>
+    <string name="register">REGISTER</string>
+    <string name="login">LOGIN</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="no_account_create">Don\'t have an Account? </string>
+    <string name="create_account">Create Account</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="Rs">\u20B9</string>
+    <string name="home">HOME</string>
+    <string name="matches">MATCHES</string>
+    <string name="feed">FEED</string>
+    <string name="more">MORE</string>
+    <string name="my_account">MY ACCOUNT</string>
+    <string name="my_balance">MY BALANCE</string>
+    <string name="my_reward_offer">MY REWARD &amp; OFFER</string>
+    <string name="invite_ref">INVITE REFERRALS</string>
+    <string name="my_setting">MY INFO &amp; SETTING</string>
+    <string name="point_system">POINT SYSTEM</string>
+
+</resources>
