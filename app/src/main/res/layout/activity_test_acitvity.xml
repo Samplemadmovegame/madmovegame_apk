@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
+    tools:context=".team.TeamPreview">
+
+
+    <ImageView
+        android:id="@+id/p1_img"
+        android:layout_width="@dimen/dim_60dp"
+        android:layout_height="@dimen/dim_60dp"
+        android:layout_marginTop="@dimen/dim_30dp"
+        android:background="@drawable/dhoni_img"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/p11_img"
+        android:layout_width="@dimen/dim_60dp"
+        android:layout_height="@dimen/dim_60dp"
+        android:layout_marginTop="@dimen/dim_30dp"
+        android:background="@drawable/dhoni_img"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/p12_img"
+        android:layout_width="@dimen/dim_60dp"
+        android:layout_height="@dimen/dim_60dp"
+        android:layout_marginTop="@dimen/dim_30dp"
+        android:background="@drawable/dhoni_img"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/p11_img" />
+
+
+</android.support.constraint.ConstraintLayout>

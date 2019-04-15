@@ -287,6 +287,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dim_0dp"
         android:layout_marginTop="@dimen/dim_10dp"
+        android:layoutAnimation="@anim/layout_animation_from_bottom"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@id/price_v">
 
