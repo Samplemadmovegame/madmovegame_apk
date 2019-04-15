@@ -8,4 +8,5 @@
         android:fromXDelta="0%p"
         android:toXDelta="70%p"
         android:duration="800" />
+
 </set>

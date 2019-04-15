@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.msewa.madmovegame.R;
+import com.msewa.madmovegame.constant.Const;
 import com.msewa.madmovegame.contest.ContestActivity;
 import com.msewa.madmovegame.home.adapter.AllSportsListAdapter;
 import com.msewa.madmovegame.home.adapter.SportsListAdapter;
@@ -66,7 +67,40 @@ public class HomeFrag extends Fragment {
         mSportsListAdapter = new SportsListAdapter(getActivity(), new SportsListAdapter.SportsListAdapterListener() {
             @Override
             public void onItemClick(String sportName) {
-                Toast.makeText(getActivity(), sportName, Toast.LENGTH_SHORT).show();
+
+                switch (sportName) {
+                    case Const.CRICKET:
+                        mAllSportsListAdapter.setSportList(HomeUtil.getAllSportsCricketList());
+                        mAllSportsListAdapter.setSelectedSport(sportName);
+                        mAllSportsListAdapter.notifyDataSetChanged();
+                        break;
+
+                    case Const.HOCKEY:
+                        Toast.makeText(getActivity(), sportName, Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case Const.BASEBALL:
+                        Toast.makeText(getActivity(), sportName, Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case Const.FOOTBALL:
+                        Toast.makeText(getActivity(), sportName, Toast.LENGTH_SHORT).show();
+//                        mAllSportsListAdapter.setSportList(HomeUtil.getAllSportsFootballList());
+//                        mAllSportsListAdapter.setSelectedSport(sportName);
+//                        mAllSportsListAdapter.notifyDataSetChanged();
+
+                        break;
+
+                    case Const.BADMINTON:
+                        Toast.makeText(getActivity(), sportName, Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case Const.BASKETBALL:
+                        Toast.makeText(getActivity(), sportName, Toast.LENGTH_SHORT).show();
+                        break;
+                }
+
+                mSportsListAdapter.notifyDataSetChanged();
             }
         });
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -75,7 +109,7 @@ public class HomeFrag extends Fragment {
     }
 
     private void setUpAllSportsAdapter() {
-        mAllSportsListAdapter = new AllSportsListAdapter(getActivity(), HomeUtil.getAllSportsCricketList(), new AllSportsListAdapter.SportsListAdapterListener() {
+        mAllSportsListAdapter = new AllSportsListAdapter(getActivity(), HomeUtil.getAllSportsCricketList(), Const.CRICKET, new AllSportsListAdapter.SportsListAdapterListener() {
             @Override
             public void onItemClick(AllSports sportName) {
                 Intent intent = new Intent(getActivity(), ContestActivity.class);

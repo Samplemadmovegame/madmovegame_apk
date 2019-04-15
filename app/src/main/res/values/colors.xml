@@ -9,6 +9,7 @@
     <color name="colorDarkBlue">#556AB2</color>
     <color name="colorBlue">#101678</color>
     <color name="gray">#E7E6E6</color>
+    <color name="dark_gray">#7E7E7E</color>
     <color name="red">#F10808</color>
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>

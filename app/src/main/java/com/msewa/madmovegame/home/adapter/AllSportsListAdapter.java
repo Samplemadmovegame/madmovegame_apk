@@ -13,9 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.msewa.madmovegame.constant.Const;
 import com.msewa.madmovegame.R;
 import com.msewa.madmovegame.home.model.AllSports;
+import com.msewa.madmovegame.home.model.Sport;
+import com.msewa.madmovegame.util.AppAnimationUtil;
 
 import java.util.List;
 
@@ -24,16 +27,17 @@ public class AllSportsListAdapter extends RecyclerView.Adapter<AllSportsListAdap
     private Context mContext;
     private List<AllSports> sportList;
     private SportsListAdapterListener mListener;
-    private int delayAnimate = 300;
+    private String selectedSport;
 
     public AllSportsListAdapter() {
 
     }
 
-    public AllSportsListAdapter(Context mContext, List<AllSports> sportList, SportsListAdapterListener mListener) {
+    public AllSportsListAdapter(Context mContext, List<AllSports> sportList, String selectedSport, SportsListAdapterListener mListener) {
         this.mContext = mContext;
         this.sportList = sportList;
         this.mListener = mListener;
+        this.selectedSport = selectedSport;
     }
 
     @NonNull
@@ -47,6 +51,8 @@ public class AllSportsListAdapter extends RecyclerView.Adapter<AllSportsListAdap
     @Override
     public void onBindViewHolder(@NonNull SportsViewHolder sportsViewHolder, int i) {
         final AllSports sport = sportList.get(i);
+
+
         sportsViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,121 +66,29 @@ public class AllSportsListAdapter extends RecyclerView.Adapter<AllSportsListAdap
         sportsViewHolder.leagueName.setText(sport.getLeagueName());
 
 
-        switch (sport.getTeam1()) {
-
-            case Const.CSK:
-                Glide.with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.csk_icon))
-                        .into(sportsViewHolder.tema1Img);
+        switch (selectedSport) {
+            case Const.CRICKET:
+                setTeamImgAndNameForCricket(sportsViewHolder, sport);
                 break;
-
-
-            case Const.MI:
-                Glide.with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.mi_icon))
-                        .into(sportsViewHolder.tema1Img);
+            case Const.BADMINTON:
                 break;
-
-
-            case Const.KKR:
-
-                Glide.with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.kkr_icon))
-                        .into(sportsViewHolder.tema1Img);
+            case Const.BASEBALL:
                 break;
-
-
-            case Const.PUNE:
-
-                Glide.with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.pune_icon))
-                        .into(sportsViewHolder.tema1Img);
-
+            case Const.HOCKEY:
                 break;
-
-
-            case Const.HYD:
-
-                Glide.with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.hyd_icon))
-                        .into(sportsViewHolder.tema1Img);
-
+            case Const.BASKETBALL:
                 break;
-
-
-            case Const.RCB:
-
-                Glide.with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.rcb_icon))
-                        .into(sportsViewHolder.tema1Img);
-
+            case Const.FOOTBALL:
+                setTeamImgAndNameForFootball(sportsViewHolder, sport);
                 break;
-
 
         }
 
-        switch (sport.getTeam2()) {
+        AppAnimationUtil.setAnimation(mContext, R.anim.left_to_right, sportsViewHolder.team2Img);
+        AppAnimationUtil.setAnimation(mContext, R.anim.left_to_right, sportsViewHolder.team2Name);
+        AppAnimationUtil.setAnimation(mContext, R.anim.right_to_left, sportsViewHolder.tema1Img);
+        AppAnimationUtil.setAnimation(mContext, R.anim.right_to_left, sportsViewHolder.team1Name);
 
-            case Const
-                    .CSK:
-
-                Glide
-                        .with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.csk_icon))
-                        .into(sportsViewHolder.team2Img);
-                break;
-
-
-            case Const
-                    .MI:
-                Glide
-                        .with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.mi_icon))
-                        .into(sportsViewHolder.team2Img);
-                break;
-
-
-            case Const
-                    .KKR:
-
-                Glide
-                        .with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.kkr_icon))
-                        .into(sportsViewHolder.team2Img);
-                break;
-
-
-            case Const
-                    .PUNE:
-
-                Glide
-                        .with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.pune_icon))
-                        .into(sportsViewHolder.team2Img);
-                break;
-
-
-            case Const
-                    .HYD:
-
-                Glide
-                        .with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.hyd_icon))
-                        .into(sportsViewHolder.team2Img);
-                break;
-
-
-            case Const
-                    .RCB:
-
-                Glide
-                        .with(mContext)
-                        .load(mContext.getResources().getDrawable(R.drawable.rcb_icon))
-                        .into(sportsViewHolder.team2Img);
-                break;
-
-
-        }
     }
 
     @Override
@@ -206,18 +120,295 @@ public class AllSportsListAdapter extends RecyclerView.Adapter<AllSportsListAdap
         void onItemClick(AllSports allSports);
     }
 
-    private void setAnimation(final View view) {
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                Animation animation = AnimationUtils.loadAnimation(mContext, android.R.anim.slide_in_left);
-                if(view!=null){
-                    view.startAnimation(animation);
-                    view.setVisibility(View.VISIBLE);
-                }
-            }
-        }, delayAnimate);
-        delayAnimate+=300;
+    public void setSelectedSport(String selectedSport) {
+        this.selectedSport = selectedSport;
     }
 
+    public void setSportList(List<AllSports> sportList) {
+        this.sportList = sportList;
+    }
+
+
+    private void setTeamImgAndNameForCricket(SportsViewHolder sportsViewHolder, AllSports sport) {
+
+        switch (sport.getTeam1()) {
+
+            case Const.CSK:
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.csk_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(sportsViewHolder.tema1Img);
+                break;
+
+
+            case Const.MI:
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.mi_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(sportsViewHolder.tema1Img);
+                break;
+
+
+            case Const.KKR:
+
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.kkr_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(sportsViewHolder.tema1Img);
+                break;
+
+
+            case Const.PUNE:
+
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.pune_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(sportsViewHolder.tema1Img);
+
+                break;
+
+
+            case Const.HYD:
+
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.hyd_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(sportsViewHolder.tema1Img);
+
+                break;
+
+
+            case Const.RCB:
+
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.rcb_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.tema1Img);
+
+                break;
+
+
+        }
+
+        switch (sport.getTeam2()) {
+
+            case Const
+                    .CSK:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.csk_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .MI:
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.mi_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .KKR:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.kkr_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .PUNE:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.pune_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .HYD:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.hyd_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .RCB:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.rcb_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+        }
+
+    }
+
+    private void setTeamImgAndNameForFootball(SportsViewHolder sportsViewHolder, AllSports sport) {
+
+        switch (sport.getTeam1()) {
+
+            case Const.DEA:
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.dea_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.tema1Img);
+                break;
+
+
+            case Const.MFC:
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.mfc_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.tema1Img);
+                break;
+
+
+            case Const.LFC:
+
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.lfc_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.tema1Img);
+                break;
+
+
+            case Const.BFC:
+
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.bfc_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.tema1Img);
+
+                break;
+
+
+            case Const.SFC:
+
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.sfc_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.tema1Img);
+
+                break;
+
+
+            case Const.CDF:
+
+                Glide.with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.cdf_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.tema1Img);
+
+                break;
+
+
+        }
+
+        switch (sport.getTeam2()) {
+
+            case Const
+                    .DEA:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.dea_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .MFC:
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.mfc_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .SFC:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.sfc_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .LFC:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.lfc_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .CDF:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.cdf_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+            case Const
+                    .BFC:
+
+                Glide
+                        .with(mContext)
+                        .load(mContext.getResources().getDrawable(R.drawable.bfc_t_football_icon))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+
+                        .into(sportsViewHolder.team2Img);
+                break;
+
+
+        }
+
+    }
 }

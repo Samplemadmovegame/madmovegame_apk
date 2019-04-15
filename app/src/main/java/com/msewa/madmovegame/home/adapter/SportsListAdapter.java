@@ -2,6 +2,7 @@ package com.msewa.madmovegame.home.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ public class SportsListAdapter extends RecyclerView.Adapter<SportsListAdapter.Sp
     private Context mContext;
     private List<Sport> sportList;
     private SportsListAdapterListener mListener;
+    private static int seletedRow = 0;
 
     public SportsListAdapter() {
 
@@ -41,16 +43,28 @@ public class SportsListAdapter extends RecyclerView.Adapter<SportsListAdapter.Sp
 
 
     @Override
-    public void onBindViewHolder(@NonNull SportsViewHolder sportsViewHolder, int i) {
+    public void onBindViewHolder(@NonNull SportsViewHolder sportsViewHolder, final int i) {
         final Sport sport = sportList.get(i);
         sportsViewHolder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onItemClick(sport.getName());
+                if (seletedRow != i) {
+                    seletedRow = i;
+                    mListener.onItemClick(sport.getName());
+                }
             }
         });
 
         sportsViewHolder.sportsName.setText(sport.getName());
+
+        if (seletedRow == i) {
+            sportsViewHolder.imgBackView.setCardBackgroundColor(mContext.getResources().getColor(R.color.colorPrimary));
+            sportsViewHolder.sportsName.setTextColor(mContext.getResources().getColor(R.color.colorPrimary));
+
+        } else {
+            sportsViewHolder.imgBackView.setCardBackgroundColor(mContext.getResources().getColor(R.color.dark_gray));
+            sportsViewHolder.sportsName.setTextColor(mContext.getResources().getColor(R.color.dark_gray));
+        }
 
         switch (sport.getName()) {
 
@@ -92,12 +106,14 @@ public class SportsListAdapter extends RecyclerView.Adapter<SportsListAdapter.Sp
         View view;
         ImageView sportsImage;
         TextView sportsName;
+        CardView imgBackView;
 
         public SportsViewHolder(@NonNull View itemView) {
             super(itemView);
             view = itemView;
             sportsImage = view.findViewById(R.id.s_image);
             sportsName = view.findViewById(R.id.name);
+            imgBackView = view.findViewById(R.id.img_back_view);
         }
     }
 
