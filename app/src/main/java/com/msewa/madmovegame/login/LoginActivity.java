@@ -14,6 +14,8 @@ import com.msewa.madmovegame.login.loginFragment.RegisterFragment;
 public class LoginActivity extends AppCompatActivity
         implements LoginFragment.LoginFragmentListeners {
 
+    public final String TAG = "LoginActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,6 @@ public class LoginActivity extends AppCompatActivity
 
     @Override
     public void openForgetPasswordFragment() {
-
         //Open Forget Fragment
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container_view, ForgetPwdFragment.newInstance())
@@ -37,7 +38,6 @@ public class LoginActivity extends AppCompatActivity
 
     @Override
     public void openCreateAccountFragment() {
-
         //Open Register Fragment
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container_view, RegisterFragment.newInstance())

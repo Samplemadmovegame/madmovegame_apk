@@ -16,6 +16,7 @@ import com.msewa.madmovegame.util.AppAnimationUtil;
  */
 public class AuthenticationFragment extends Fragment {
 
+    public static final String TAG = "AuthenticationFragment";
     private Button registerButton, loginButton;
 
     public AuthenticationFragment() {
@@ -23,9 +24,7 @@ public class AuthenticationFragment extends Fragment {
     }
 
     public static AuthenticationFragment newInstance() {
-
         Bundle args = new Bundle();
-
         AuthenticationFragment fragment = new AuthenticationFragment();
         fragment.setArguments(args);
         return fragment;
@@ -40,13 +39,14 @@ public class AuthenticationFragment extends Fragment {
         registerButton = view.findViewById(R.id.register_button);
         loginButton = view.findViewById(R.id.login_button);
 
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, registerButton);
+
+        // apply animation for views
+        AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, registerButton);
         AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, loginButton);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.bottom_to_top, 0, 0, 0)
                         .replace(R.id.container_view, RegisterFragment.newInstance())
@@ -59,7 +59,6 @@ public class AuthenticationFragment extends Fragment {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.bottom_to_top, 0, 0, 0)
                         .replace(R.id.container_view, LoginFragment.newInstance(), LoginFragment.TAG)
