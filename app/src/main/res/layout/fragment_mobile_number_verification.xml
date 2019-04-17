@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.fragments.RegisterFragment">
+    tools:context=".auth.register.RegisterFragment">
 
     <RelativeLayout
         android:id="@+id/layout_1"
@@ -62,7 +62,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:gravity="center"
-                android:hint="@string/mobile_number">
+                android:hint="@string/enter_mobile_number"
+                android:inputType="number">
 
             </EditText>
         </android.support.v7.widget.CardView>

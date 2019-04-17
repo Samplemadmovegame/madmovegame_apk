@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.msewa.madmovegame.R;
 import com.msewa.madmovegame.intro.adapter.IntroViewPagerAdapter;
-import com.msewa.madmovegame.auth.LoginActivity;
+import com.msewa.madmovegame.auth.login.LoginActivity;
 
 public class IntroductionActivity extends AppCompatActivity {
 

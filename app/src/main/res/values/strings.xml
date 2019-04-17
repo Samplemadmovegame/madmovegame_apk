@@ -49,5 +49,14 @@
     <string name="enter_otp">Enter OTP</string>
     <string name="submit">Submit</string>
     <string name="resend_otp">Resend OTP</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="contact">Mobile Number</string>
+    <string name="Male">male</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="trangender">Transgender</string>
 
 </resources>

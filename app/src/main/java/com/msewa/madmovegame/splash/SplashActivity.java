@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.ImageView;
 
 import com.msewa.madmovegame.R;
+import com.msewa.madmovegame.auth.login.LoginActivity;
 import com.msewa.madmovegame.home.HomeActivity;
 import com.msewa.madmovegame.intro.IntroductionActivity;
 import com.msewa.madmovegame.util.AppAnimationUtil;
@@ -38,9 +39,18 @@ public class SplashActivity extends AppCompatActivity {
                 boolean oneTime = intro.getBoolean("oneTime", false);
 
                 if (oneTime) {
-                    Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
-                    startActivity(intent);
-                    finish();
+                    boolean loggedin = intro.getBoolean("loggedin", false);
+
+                    if (loggedin) {
+                        Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 } else {
                     intro.edit().putBoolean("oneTime", true).apply();
                     Intent intent = new Intent(SplashActivity.this, IntroductionActivity.class);
