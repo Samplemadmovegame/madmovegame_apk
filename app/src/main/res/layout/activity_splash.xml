@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/logo_img"
-        android:transitionName="logo"
+        android:transitionName="@string/app_logo_transition_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/dim_50dp"

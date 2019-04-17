@@ -1,6 +1,7 @@
 package com.msewa.madmovegame.splash;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.Window;
 import android.widget.ImageView;
 
 import com.msewa.madmovegame.R;
+import com.msewa.madmovegame.home.HomeActivity;
 import com.msewa.madmovegame.intro.IntroductionActivity;
 import com.msewa.madmovegame.util.AppAnimationUtil;
 
@@ -31,11 +33,23 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this,IntroductionActivity.class);
-                // Pass data object in the bundle and populate details activity.
-                ActivityOptionsCompat options = ActivityOptionsCompat.
-                        makeSceneTransitionAnimation(SplashActivity.this, (View)topImageView, "logo");
-                startActivity(intent,options.toBundle());
+
+                SharedPreferences intro = getSharedPreferences("intro", 0);
+                boolean oneTime = intro.getBoolean("oneTime", false);
+
+                if (oneTime) {
+                    Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    intro.edit().putBoolean("oneTime", true).apply();
+                    Intent intent = new Intent(SplashActivity.this, IntroductionActivity.class);
+                    // Pass data object in the bundle and populate details activity.
+                    ActivityOptionsCompat options = ActivityOptionsCompat.
+                            makeSceneTransitionAnimation(SplashActivity.this, (View) topImageView, "logo");
+                    startActivity(intent, options.toBundle());
+                    finish();
+                }
             }
         }, 1000);
     }

@@ -31,7 +31,7 @@
         android:layout_marginLeft="@dimen/dim_50dp"
         android:layout_marginRight="@dimen/dim_50dp"
         android:src="@drawable/mad_move_logo"
-        android:transitionName="logo"
+        android:transitionName="@string/app_logo_transition_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />

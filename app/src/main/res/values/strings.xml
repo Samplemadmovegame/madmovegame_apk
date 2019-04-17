@@ -42,5 +42,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_logo_transition_name">logo</string>
+    <string name="otp">VARIFY MOBILE NUMBER</string>
+    <string name="verify">Verify</string>
+    <string name="verify_otp">VERIFY OTP</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="submit">Submit</string>
+    <string name="resend_otp">Resend OTP</string>
 
 </resources>

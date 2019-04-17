@@ -52,6 +52,8 @@
     <dimen name="dim_170dp">170dp</dimen>
     <dimen name="dim_9dp">9dp</dimen>
     <dimen name="back_button_margin">20dp</dimen>
+    <dimen name="login_page_padding">36dp</dimen>
+    <dimen name="login_page_title_text">20sp</dimen>
 
     <integer name="slide_animation_duration">300</integer>
 

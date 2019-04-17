@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.msewa.madmovegame.R;
 import com.msewa.madmovegame.intro.adapter.IntroViewPagerAdapter;
-import com.msewa.madmovegame.login.LoginActivity;
+import com.msewa.madmovegame.auth.LoginActivity;
 
 public class IntroductionActivity extends AppCompatActivity {
 
@@ -22,31 +22,28 @@ public class IntroductionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_introduction);
 
         introductionViewPager = findViewById(R.id.introduction_viewpager);
-        introductionViewPager.setPageTransformer(false,new FadePageTransformer());
+
+        // it applies sliding effects on fragment in view pager
+        introductionViewPager.setPageTransformer(false, new FadePageTransformer());
+
         skipButton = findViewById(R.id.skip_button);
-
-        setUpViewAdapter();
-
         skipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(IntroductionActivity.this, LoginActivity.class));
+                finish();
             }
         });
 
+        setUpViewAdapter();
     }
 
-
-    public void setUpViewAdapter(){
-
+    public void setUpViewAdapter() {
         IntroViewPagerAdapter introViewPagerAdapter = new IntroViewPagerAdapter(getSupportFragmentManager());
         introViewPagerAdapter.addFragment(IntroFragment1.newInstance());
         introViewPagerAdapter.addFragment(IntroFragment2.newInstance());
         introViewPagerAdapter.addFragment(IntroFragment3.newInstance());
         introViewPagerAdapter.addFragment(IntroFragment4.newInstance());
-
         introductionViewPager.setAdapter(introViewPagerAdapter);
-
     }
 }
