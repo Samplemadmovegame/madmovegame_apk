@@ -47,26 +47,24 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:padding="@dimen/login_page_padding"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:padding="@dimen/login_page_padding">
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/first_name_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="@dimen/dim_0dp"
-                android:layout_height="@dimen/edit_text_height"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dim_20dp"
-                app:layout_constraintLeft_toLeftOf="parent"
                 android:hint="@string/first_name"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/last_name_t_i_layout"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/first_name_et"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+                    android:layout_height="wrap_content" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -74,19 +72,18 @@
                 android:id="@+id/last_name_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="@dimen/dim_0dp"
-                android:layout_height="@dimen/edit_text_height"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_bwt_edit_text"
                 android:layout_toRightOf="@+id/first_name_t_i_layout"
+                android:hint="@string/last_name"
                 app:layout_constraintLeft_toRightOf="@+id/first_name_t_i_layout"
                 app:layout_constraintRight_toRightOf="parent"
-                android:hint="@string/last_name"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/last_name_et"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                     />
+                    android:layout_height="wrap_content" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -94,18 +91,17 @@
                 android:id="@+id/email_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_height"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_bwt_edit_text"
                 android:layout_toRightOf="@+id/first_name_t_i_layout"
-                app:layout_constraintRight_toRightOf="parent"
                 android:hint="@string/email"
-                app:layout_constraintTop_toBottomOf="@+id/first_name_t_i_layout">
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/last_name_t_i_layout">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/email_et"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+                    android:layout_height="wrap_content" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -113,18 +109,17 @@
                 android:id="@+id/contact_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_height"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_bwt_edit_text"
                 android:layout_toRightOf="@+id/first_name_t_i_layout"
-                app:layout_constraintRight_toRightOf="parent"
                 android:hint="@string/contact"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email_t_i_layout">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/contact_et"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
+                    android:layout_height="wrap_content" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -141,24 +136,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/dim_17sp"
-                    android:text="@string/male" />
+                    android:text="@string/male"
+                    android:textSize="@dimen/dim_17sp" />
 
                 <RadioButton
                     android:id="@+id/female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/dim_17sp"
-                    android:text="@string/female" />
+                    android:text="@string/female"
+                    android:textSize="@dimen/dim_17sp" />
 
                 <RadioButton
                     android:id="@+id/trasgender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="@dimen/dim_17sp"
-                    android:text="@string/trangender" />
+                    android:text="@string/trangender"
+                    android:textSize="@dimen/dim_17sp" />
 
             </RadioGroup>
 
@@ -166,12 +161,12 @@
                 android:layout_width="@dimen/dim_100dp"
                 android:layout_height="@dimen/dim_40dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/dim_30dp"
                 android:layout_marginTop="@dimen/dim_20dp"
+                android:layout_marginBottom="@dimen/dim_30dp"
                 app:cardCornerRadius="@dimen/dim_10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/radio_group_gender">
 
                 <Button
@@ -184,7 +179,6 @@
                     android:textColor="@color/colorPrimary" />
 
             </android.support.v7.widget.CardView>
-
 
         </android.support.constraint.ConstraintLayout>
 
