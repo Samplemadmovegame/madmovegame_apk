@@ -2,14 +2,25 @@ package com.msewa.madmovegame.auth.register;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
+import com.google.gson.JsonObject;
 import com.msewa.madmovegame.R;
+import com.msewa.madmovegame.api.ApiClient;
+import com.msewa.madmovegame.api.ApiServices;
+import com.msewa.madmovegame.common.LoadingDialog;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,10 +32,16 @@ import com.msewa.madmovegame.R;
  */
 public class MobileNoVerificationFrag extends Fragment {
 
+    public static final String TAG = "MobileNoVerifyFrag";
     private Button verifyBt;
     private EditText mobileNoEt;
 
+
     private OnMobileNoVerificationFragInteractionListener mListener;
+
+
+    private ApiServices baseService;
+    private LoadingDialog loadingDialog;
 
     public MobileNoVerificationFrag() {
         // Required empty public constructor
@@ -43,6 +60,7 @@ public class MobileNoVerificationFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        baseService = ApiClient.getInstance().getBaseService();
     }
 
     @Override
@@ -55,10 +73,46 @@ public class MobileNoVerificationFrag extends Fragment {
         verifyBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onClickVerify(mobileNoEt.getText().toString());
+
+                if (mobileNoEt.getText().toString().length() == 10)
+                    sendOTP(mobileNoEt.getText().toString());
+                else
+                    mobileNoEt.setError(getString(R.string.error_msg_10_digit_number));
             }
         });
+
+        //init progress bar
+        loadingDialog = new LoadingDialog(getActivity());
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    private void sendOTP(String mobileNo) {
+        loadingDialog.show();
+        Call<JsonObject> jsonObjectCall = baseService.sendOTP(mobileNo);
+        jsonObjectCall.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                loadingDialog.dismiss();
+                JsonObject body = response.body();
+                // Log.i(TAG, body.toString());
+            }
+
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                loadingDialog.dismiss();
+                // Log.i(TAG, t.getCause().toString());
+            }
+
+        });
+
+        mListener.onClickVerify(mobileNo);
+
     }
 
 

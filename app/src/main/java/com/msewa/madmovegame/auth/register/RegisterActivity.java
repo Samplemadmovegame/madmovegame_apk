@@ -19,7 +19,7 @@ public class RegisterActivity extends AppCompatActivity implements MobileNoVerif
 
     @Override
     public void onClickVerify(String mobileNo) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, OtpFrag.newInstance()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, OtpFrag.newInstance(mobileNo)).commit();
     }
 
     @Override

@@ -5,8 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.msewa.madmovegame.R;
+import com.msewa.madmovegame.auth.register.MobileNoVerificationFrag;
+import com.msewa.madmovegame.auth.register.RegisterActivity;
 import com.msewa.madmovegame.home.HomeActivity;
-import com.msewa.madmovegame.auth.AuthenticationFragment;
 import com.msewa.madmovegame.auth.register.RegisterFragment;
 
 public class LoginActivity extends AppCompatActivity
@@ -21,7 +22,7 @@ public class LoginActivity extends AppCompatActivity
 
         //Open Authentication Fragment
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_view, AuthenticationFragment.newInstance())
+                .replace(R.id.container_view, LoginFragment.newInstance())
                 .addToBackStack(null).commit();
     }
 
@@ -37,9 +38,7 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public void openCreateAccountFragment() {
         //Open Register Fragment
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_view, RegisterFragment.newInstance())
-                .addToBackStack(null).commit();
+      startActivity(new Intent(this, RegisterActivity.class));
 
     }
 

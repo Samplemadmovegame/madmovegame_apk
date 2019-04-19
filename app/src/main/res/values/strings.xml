@@ -58,5 +58,12 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="trangender">Transgender</string>
+    <string name="error_msg_10_digit_number">Please Enter Ten Digit Mobile Number</string>
+    <string name="error_msg_six_digit_otp">Please Enter Six Digit OTP Number</string>
+    <string name="please_wait">Please wait ...</string>
+    <string name="error_msg_six_digit_password">Please Enter Six Digit Password</string>
+    <string name="forgot_password">CHANGE PASSWORD</string>
+    <string name="conform_pass">Conform Password</string>
+    <string name="change">Change</string>
 
 </resources>

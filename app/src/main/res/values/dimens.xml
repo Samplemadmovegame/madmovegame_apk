@@ -56,6 +56,7 @@
     <dimen name="login_page_title_text">20sp</dimen>
     <dimen name="edit_text_height">60dp</dimen>
     <dimen name="margin_bwt_edit_text">20dp</dimen>
+    <dimen name="down_line_height">20dp</dimen>
 
     <integer name="slide_animation_duration">300</integer>
 
