@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dim_0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintHeight_percent="0.7"
         app:layout_constraintTop_toBottomOf="@+id/top_view">
 
         <android.support.constraint.ConstraintLayout

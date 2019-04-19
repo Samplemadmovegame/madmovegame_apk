@@ -17,9 +17,6 @@ public class ApiClient {
 
     private Retrofit retrofit;
 
-
-    private HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-
     private final static OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .readTimeout(2, TimeUnit.MINUTES)
             .connectTimeout(2, TimeUnit.MINUTES)
