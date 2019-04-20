@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.gson.JsonObject;
@@ -28,15 +29,17 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class LoginFragment extends Fragment implements View.OnClickListener {
-    public static final String TAG = "Login Fragment";
-    private EditText mobileNumberTIEditText, passwordTIEditText;
-    private TextView forgetPasswordTV, createAccountTV;
-    private Button loginButton;
+
+    public static final String TAG = "Login_Fragment";
+    private EditText mobileNoEt, passwordEt;
+    private TextView forgetPasswordBt, createAccountBt;
+    private Button loginBt;
+    private ImageButton passwordEyeBt;
 
     private LoginFragmentListeners mListeners;
     private String deviceId;
     private ApiServices baseService;
-    private Call<JsonObject> login;
+    private Call<JsonObject> loginService;
     private LoadingDialog loadingDialog;
 
 
@@ -45,9 +48,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
     public static LoginFragment newInstance() {
-
         Bundle args = new Bundle();
-
         LoginFragment fragment = new LoginFragment();
         fragment.setArguments(args);
         return fragment;
@@ -64,72 +65,83 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
+        mobileNoEt = view.findViewById(R.id.mobileNo_et);
+        passwordEt = view.findViewById(R.id.password_et);
+        forgetPasswordBt = view.findViewById(R.id.forget_password_bt);
+        createAccountBt = view.findViewById(R.id.create_account_bt);
+        passwordEyeBt = view.findViewById(R.id.password_eye_bt);
+        loginBt = view.findViewById(R.id.login_bt);
 
-        mobileNumberTIEditText = view.findViewById(R.id.mobile_numberTIEditText);
-        passwordTIEditText = view.findViewById(R.id.password_TIEditText);
+        // init animation for views
+        AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, forgetPasswordBt);
+        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, mobileNoEt);
+        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, passwordEt);
 
-        forgetPasswordTV = view.findViewById(R.id.forget_password_tv);
-        createAccountTV = view.findViewById(R.id.create_account_tv);
 
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, forgetPasswordTV);
+        /**
+         * set listener for buttons where click handles on {@link #onClick(View view)} methods
+         */
+        forgetPasswordBt.setOnClickListener(this);
+        createAccountBt.setOnClickListener(this);
+        loginBt.setOnClickListener(this);
+        passwordEyeBt.setOnClickListener(this);
 
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, mobileNumberTIEditText);
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, passwordTIEditText);
-
-        loginButton = view.findViewById(R.id.login_button);
-
-        forgetPasswordTV.setOnClickListener(this);
-        createAccountTV.setOnClickListener(this);
-        loginButton.setOnClickListener(this);
-
+        // init custom progressing dialog
         loadingDialog = new LoadingDialog(getActivity());
 
         return view;
     }
 
+
     @Override
     public void onClick(View view) {
-
         switch (view.getId()) {
-            case R.id.forget_password_tv:
-                mListeners.openForgetPasswordFragment();
+            case R.id.forget_password_bt:
+                if (mobileNoEt.getText().toString().length() == 10)
+                    mListeners.openForgetPasswordFragment();
+                else
+                    mobileNoEt.setError(getString(R.string.error_msg_10_digit_number));
                 break;
 
-            case R.id.create_account_tv:
+            case R.id.create_account_bt:
                 mListeners.openCreateAccountFragment();
                 break;
 
-            case R.id.login_button:
-                checkValidation();
+            case R.id.login_bt:
+                if (mobileNoEt.getText().toString().length() == 10) {
+                    if (passwordEt.getText().toString().length() == 6)
+                        login(mobileNoEt.getText().toString(), passwordEt.getText().toString());
+                    else
+                        passwordEt.setError(getString(R.string.error_msg_six_digit_password));
+
+                } else {
+                    mobileNoEt.setError(getString(R.string.error_msg_10_digit_number));
+                }
+                break;
+
+            case R.id.password_eye_bt:
+
                 break;
         }
 
     }
 
-    private void checkValidation() {
 
-        if (mobileNumberTIEditText.getText().toString().length() == 10) {
-            if (passwordTIEditText.getText().toString().length() == 6)
-                login(mobileNumberTIEditText.getText().toString(), passwordTIEditText.getText().toString());
-            else
-                passwordTIEditText.setError(getString(R.string.error_msg_six_digit_password));
-
-        } else {
-            mobileNumberTIEditText.setError(getString(R.string.error_msg_10_digit_number));
-        }
-
-    }
+    /**
+     * this method is used for call the api for login
+     *
+     * @mobileNo, @password and @deviceId required parameter for login
+     */
 
     private void login(String mobileNo, String password) {
 
         if (Util.getAndroidId(getActivity()) != null) {
             deviceId = Util.getAndroidId(getActivity());
         }
-
-        login = baseService.login(mobileNo, password, deviceId);
+        loginService = baseService.login(mobileNo, password, deviceId);
 
         loadingDialog.show();
-        login.enqueue(new Callback<JsonObject>() {
+        loginService.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 loadingDialog.dismiss();
@@ -142,6 +154,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
             }
         });
+        //@TODO need to remove ,just use for completing the flow
         mListeners.openHomeFragment();
     }
 
