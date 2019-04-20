@@ -15,6 +15,7 @@ import com.msewa.madmovegame.auth.login.LoginActivity;
 import com.msewa.madmovegame.home.HomeActivity;
 import com.msewa.madmovegame.intro.IntroductionActivity;
 import com.msewa.madmovegame.util.AppAnimationUtil;
+import com.msewa.madmovegame.util.AppSharePref;
 
 public class SplashActivity extends AppCompatActivity {
     private ImageView topImageView, bottomImageView;
@@ -35,13 +36,9 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                SharedPreferences intro = getSharedPreferences("intro", 0);
-                boolean oneTime = intro.getBoolean("oneTime", false);
+                if (AppSharePref.isFirstTimeUser(getApplicationContext())) {
 
-                if (oneTime) {
-                    boolean loggedin = intro.getBoolean("loggedin", false);
-
-                    if (loggedin) {
+                    if (AppSharePref.isUserLoggedIn(getApplicationContext())) {
                         Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
                         startActivity(intent);
                         finish();
@@ -52,9 +49,15 @@ public class SplashActivity extends AppCompatActivity {
                     }
 
                 } else {
-                    intro.edit().putBoolean("oneTime", true).apply();
+
+                    // update the pref
+                    AppSharePref.setFirstTimeUser(getApplicationContext(), true);
+
+
+                    /**
+                     * start activity {@link IntroductionActivity} for first time user after app installs.
+                     */
                     Intent intent = new Intent(SplashActivity.this, IntroductionActivity.class);
-                    // Pass data object in the bundle and populate details activity.
                     ActivityOptionsCompat options = ActivityOptionsCompat.
                             makeSceneTransitionAnimation(SplashActivity.this, (View) topImageView, "logo");
                     startActivity(intent, options.toBundle());

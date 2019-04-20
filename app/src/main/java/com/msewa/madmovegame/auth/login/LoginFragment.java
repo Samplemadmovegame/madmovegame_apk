@@ -58,6 +58,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         baseService = ApiClient.getInstance().getBaseService();
+
     }
 
     @Override
@@ -130,7 +131,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     /**
      * this method is used for call the api for login
      *
-     * @mobileNo, @password and @deviceId required parameter for login
+     *
+     * @param mobileNo user mobile number
+     * @param password user given password
+     *                 {@link #deviceId}
+     *                 <p>
+     *                 this three data is required parameter for api login {@link #baseService}
      */
 
     private void login(String mobileNo, String password) {
