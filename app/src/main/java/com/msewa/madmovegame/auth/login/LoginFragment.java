@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -122,6 +124,20 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
             case R.id.password_eye_bt:
 
+                if (passwordEyeBt.isSelected()) {
+                    passwordEyeBt.setSelected(false);
+                    passwordEt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    passwordEt.setSelection(passwordEt.length());
+                    passwordEt.setTypeface(mobileNoEt.getTypeface());
+
+                } else {
+                    passwordEyeBt.setSelected(true);
+                    passwordEt.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    passwordEt.setSelection(passwordEt.length());
+                    passwordEt.setTypeface(mobileNoEt.getTypeface());
+
+                }
+
                 break;
         }
 
@@ -130,7 +146,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     /**
      * this method is used for call the api for login
-     *
      *
      * @param mobileNo user mobile number
      * @param password user given password

@@ -93,15 +93,15 @@
                     android:gravity="center"
                     android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:maxLength="6"
-                    android:password="true" />
+                    android:maxLength="6" />
 
                 <ImageButton
                     android:id="@+id/password_eye_bt"
-                    android:layout_width="@dimen/dim_30dp"
-                    android:layout_height="@dimen/dim_30dp"
+                    android:layout_width="@dimen/dim_25dp"
+                    android:layout_height="@dimen/dim_25dp"
                     android:layout_gravity="end|center_vertical"
-                    android:layout_marginRight="@dimen/dim_5dp" />
+                    android:layout_marginRight="@dimen/dim_10dp"
+                    android:background="@drawable/show_password_eye_toggle" />
 
             </android.support.v7.widget.CardView>
 

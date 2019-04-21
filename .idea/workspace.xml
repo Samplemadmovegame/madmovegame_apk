@@ -6,13 +6,26 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="*1--" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22818a4a-8f05-408e-bb1c-0febfc5bef81" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/login/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/login/LoginFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/splash_img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_forget_pwd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_forget_pwd.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,30 +63,32 @@
         <counts>
           <entry key="gradle" value="4" />
           <entry key="java" value="102" />
-          <entry key="xml" value="89" />
+          <entry key="png" value="3" />
+          <entry key="xml" value="96" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="4" />
+          <entry key="Image" value="3" />
           <entry key="JAVA" value="102" />
-          <entry key="XML" value="89" />
+          <entry key="XML" value="96" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="34" />
           <entry key="gradle" value="26" />
-          <entry key="java" value="6788" />
-          <entry key="xml" value="2773" />
+          <entry key="java" value="6905" />
+          <entry key="xml" value="2881" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="26" />
-          <entry key="JAVA" value="6788" />
+          <entry key="JAVA" value="6905" />
           <entry key="PLAIN_TEXT" value="34" />
-          <entry key="XML" value="2773" />
+          <entry key="XML" value="2881" />
         </counts>
       </usages-collector>
     </session>
@@ -83,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/login/LoginFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="60" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="124">
+              <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
               <folding>
                 <element signature="e#3265#3310#0" expanded="true" />
                 <element signature="e#3849#3897#0" expanded="true" />
@@ -95,40 +110,48 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_splash_page_image.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+            <state relative-caret-position="345">
+              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/util/AppSharePref.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/kartik_img.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="389">
+              <caret line="66" column="17" lean-forward="true" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/splash_image.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/util/AppSharedElement.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/java/lang/String.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="171" column="7" lean-forward="true" selection-start-line="171" selection-start-column="7" selection-end-line="171" selection-end-column="7" />
+            <state relative-caret-position="143">
+              <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -136,43 +159,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/login/ForgetPwdFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+            <state relative-caret-position="230">
+              <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/register/OtpFrag.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_forget_pwd.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="80" column="36" lean-forward="true" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
+            <state relative-caret-position="246">
+              <caret line="115" column="51" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
               <folding>
-                <element signature="e#2725#2876#0" expanded="true" />
-                <element signature="e#2875#2876#0" expanded="true" />
-                <element signature="method#sendVerifyOTP#0;class#OtpFrag#0" />
+                <element signature="e#3778#3795#0" expanded="true" />
+                <element signature="e#3834#3851#0" expanded="true" />
+                <element signature="e#3956#3973#0" expanded="true" />
+                <element signature="e#5075#5092#0" expanded="true" />
+                <element signature="e#5131#5148#0" expanded="true" />
+                <element signature="e#5253#5270#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/login/LoginActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/register/MobileNoVerificationFrag.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="69" column="61" lean-forward="true" selection-start-line="69" selection-start-column="61" selection-end-line="69" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -181,12 +187,13 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="163" column="53" lean-forward="true" selection-start-line="163" selection-start-column="53" selection-end-line="163" selection-end-column="53" />
+            <state relative-caret-position="251">
+              <caret line="106" selection-start-line="106" selection-end-line="106" />
               <folding>
-                <element signature="e#4266#4283#0" expanded="true" />
-                <element signature="e#4326#4343#0" expanded="true" />
-                <element signature="e#4396#4412#0" expanded="true" />
+                <element signature="e#4287#4304#0" expanded="true" />
+                <element signature="e#4347#4364#0" expanded="true" />
+                <element signature="e#4477#4494#0" expanded="true" />
+                <element signature="e#6376#6393#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -198,9 +205,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
-        <option value="resourceFile" />
         <option value="valueResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -210,11 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_test_acitvity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/row_sport.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/constant/Const.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/util/HomeUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/home/HomeFrag.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/home/adapter/AllSportsListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/home/adapter/SportsListAdapter.java" />
@@ -222,7 +224,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/login/loginFragment/AuthenticationFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/login/loginFragment/RegisterFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/login/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_introduction.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/app_bar_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/home/HomeActivity.java" />
@@ -250,17 +251,23 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/register/OtpFrag.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/api/ApiClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/fractions.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_forget_pwd.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_otp.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_mobile_number_verification.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/login/LoginFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/util/AppSharePref.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/util/AppSharedElement.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/password_eye_background.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/invisible_eye.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/visible_eye.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_forget_pwd.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/login/LoginFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/ic_splash_page_image.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
       </list>
     </option>
   </component>
@@ -416,6 +423,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="drawable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="madmovegame_apk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="madmovegame_apk" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="values" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -453,7 +469,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="splash&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java&#10;mani&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml&#10;di&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/res/values/dimens.xml&#10;am&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml&#10;sty&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/res/values/styles.xml&#10;ma&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml&#10;build&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/build.gradle&#10;spl&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java&#10;Hom&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/home/HomeActivity.java&#10;Login&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/login/loginFragment/LoginFragment.java&#10;Log&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/login/LoginActivity.java&#10;Re&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/res/layout/fragment_register.xml&#10;auth&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/login/loginFragment/AuthenticationFragment.java&#10;Activity&#9;FILE&#9;file:///home/lalitkumar/Android/Sdk/sources/android-28/android/databinding/appwithspaces/MainActivity.java&#10;mainAc&#9;FILE&#9;file:///home/lalitkumar/Android/Sdk/sources/android-28/android/databinding/appwithspaces/MainActivity.java&#10;HomeA&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/home/HomeActivity.java&#10;intr&#9;PSI&#9;JAVA://com.msewa.madmovegame.intro.IntroductionActivity&#10;Sp&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/home/adapter/SportsListAdapter.java&#10;man&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml&#10;Home&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/util/HomeUtil.java&#10;HomeU&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/util/HomeUtil.java&#10;Mock&#9;PSI&#9;JAVA://com.msewa.madmovegame.util.MockData&#10;manif&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml" />
+    <property name="SearchEverywhereHistoryKey" value="di&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/res/values/dimens.xml&#10;spl&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java&#10;splash&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java&#10;mani&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml&#10;am&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml&#10;sty&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/res/values/styles.xml&#10;ma&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml&#10;build&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/build.gradle&#10;Hom&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/home/HomeActivity.java&#10;Login&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/login/loginFragment/LoginFragment.java&#10;Log&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/login/LoginActivity.java&#10;Re&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/res/layout/fragment_register.xml&#10;auth&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/login/loginFragment/AuthenticationFragment.java&#10;Activity&#9;FILE&#9;file:///home/lalitkumar/Android/Sdk/sources/android-28/android/databinding/appwithspaces/MainActivity.java&#10;mainAc&#9;FILE&#9;file:///home/lalitkumar/Android/Sdk/sources/android-28/android/databinding/appwithspaces/MainActivity.java&#10;HomeA&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/home/HomeActivity.java&#10;intr&#9;PSI&#9;JAVA://com.msewa.madmovegame.intro.IntroductionActivity&#10;Sp&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/home/adapter/SportsListAdapter.java&#10;man&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml&#10;Home&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/util/HomeUtil.java&#10;HomeU&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/java/com/msewa/madmovegame/util/HomeUtil.java&#10;Mock&#9;PSI&#9;JAVA://com.msewa.madmovegame.util.MockData&#10;manif&#9;FILE&#9;file:///home/lalitkumar/Documents/dew/msewa/madmovegame_apk/app/src/main/AndroidManifest.xml" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="device.picker.selection" value="1592c048" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../epay_merchant" />
@@ -567,7 +583,7 @@
     <frame x="0" y="25" width="1366" height="678" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32575756" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.33333334" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -575,15 +591,15 @@
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Run" order="0" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.26277372" />
+      <window_info anchor="bottom" id="Logcat" order="1" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32846716" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.17335767" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.22080292" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.076642334" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.51642334" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Gradle" order="1" />
       <window_info anchor="right" id="Theme Preview" order="2" />
@@ -624,66 +640,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/home/HomeFrag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="122" column="5" selection-start-line="110" selection-start-column="3" selection-end-line="122" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/navigation/BalanceFrag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/intro/IntroductionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_introduction.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="64" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/home/HomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="31" column="31" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/app_bar_home.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -839,18 +795,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/drawables.xml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -864,24 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="20" column="51" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_forget_pwd.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="155" column="13" lean-forward="true" selection-start-line="155" selection-start-column="13" selection-end-line="155" selection-end-column="13" />
-          <folding>
-            <element signature="e#389#1663#0" />
-            <element signature="e#887#906#0" expanded="true" />
-            <element signature="e#941#961#0" expanded="true" />
-            <element signature="e#1097#1131#0" expanded="true" />
-            <element signature="e#1442#1476#0" expanded="true" />
-            <element signature="e#1570#1600#0" expanded="true" />
-            <element signature="e#1670#6417#0" />
-            <element signature="e#6507#6532#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -940,7 +874,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/register/OtpFrag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="885">
-          <caret line="80" column="36" lean-forward="true" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
+          <caret line="80" column="36" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
           <folding>
             <element signature="e#2725#2876#0" expanded="true" />
             <element signature="e#2875#2876#0" expanded="true" />
@@ -949,37 +883,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="171" column="7" selection-start-line="171" selection-start-column="7" selection-end-line="171" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/util/AppSharedElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/util/AppSharePref.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/show_password_eye_toggle.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/visible_eye.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/invisible_eye.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_login.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="163" column="53" lean-forward="true" selection-start-line="163" selection-start-column="53" selection-end-line="163" selection-end-column="53" />
+        <state relative-caret-position="251">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
           <folding>
-            <element signature="e#4266#4283#0" expanded="true" />
-            <element signature="e#4326#4343#0" expanded="true" />
-            <element signature="e#4396#4412#0" expanded="true" />
+            <element signature="e#4287#4304#0" expanded="true" />
+            <element signature="e#4347#4364#0" expanded="true" />
+            <element signature="e#4477#4494#0" expanded="true" />
+            <element signature="e#6376#6393#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/login/ForgetPwdFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+        <state relative-caret-position="230">
+          <caret line="35" column="56" selection-start-line="35" selection-start-column="56" selection-end-line="35" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Android/Sdk/sources/android-28/java/lang/String.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_forget_pwd.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="171" column="7" lean-forward="true" selection-start-line="171" selection-start-column="7" selection-end-line="171" selection-end-column="7" />
+        <state relative-caret-position="246">
+          <caret line="115" column="51" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
+          <folding>
+            <element signature="e#3778#3795#0" expanded="true" />
+            <element signature="e#3834#3851#0" expanded="true" />
+            <element signature="e#3956#3973#0" expanded="true" />
+            <element signature="e#5075#5092#0" expanded="true" />
+            <element signature="e#5131#5148#0" expanded="true" />
+            <element signature="e#5253#5270#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/auth/login/LoginFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="124">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
           <folding>
             <element signature="e#3265#3310#0" expanded="true" />
             <element signature="e#3849#3897#0" expanded="true" />
@@ -988,27 +977,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/kartik_img.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_splash_page_image.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" column="53" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/splash_img.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/splash/SplashActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="68" column="17" lean-forward="true" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
+        <state relative-caret-position="389">
+          <caret line="66" column="17" lean-forward="true" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/util/AppSharePref.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/splash_image.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/msewa/madmovegame/util/AppSharedElement.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        <state relative-caret-position="143">
+          <caret line="52" column="37" lean-forward="true" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
         </state>
       </provider>
     </entry>
