@@ -69,5 +69,18 @@
     <string name="date_of_birth">Date of Birth</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
+    <string name="error_msg_enter_first_name">Enter First Name</string>
+    <string name="error_msg_enter_last_name">Enter Last Name</string>
+    <string name="error_msg_enter_email">Enter Email</string>
+    <string name="error_msg_date_of_birth">Set Date of Birth</string>
+    <string name="contact_mandatory">Mobile Number *</string>
+    <string name="password_mandatory">Password *</string>
+    <string name="first_name_mandatory">First Name *</string>
+    <string name="email_mandatory">Email *</string>
+    <string name="date_of_birth_mandatory">Date of Birth *</string>
+    <string name="error_msg_enter_valid_email">Enter Valid Email</string>
+    <string name="error_msg_enter_password">Enter Password</string>
+    <string name="error_msg_enter_valid_first_name">Name atleast 3 letter</string>
+    <string name="error_msg_valid_18_years">You must be at least 18 years old to Register</string>
 
 </resources>

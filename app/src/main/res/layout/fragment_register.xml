@@ -52,10 +52,10 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/contact_t_i_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_height"
-                android:hint="@string/contact"
+                android:layout_height="wrap_content"
+                android:hint="@string/contact_mandatory"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -69,20 +69,22 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/password_t_i_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_height"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_bwt_edit_text"
-                android:hint="@string/password"
+                android:hint="@string/password_mandatory"
                 app:layout_constraintTop_toBottomOf="@+id/contact_t_i_layout"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimary">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/password_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
-                    android:maxLength="6" />
+                    android:maxLength="6"
+                    android:paddingRight="@dimen/dim_30dp" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -90,9 +92,9 @@
                 android:id="@+id/first_name_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/edit_text_height"
+                android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/dim_15dp"
-                android:hint="@string/first_name"
+                android:hint="@string/first_name_mandatory"
                 app:layout_constraintBottom_toTopOf="@+id/email_t_i_layout"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/last_name_t_i_layout"
@@ -108,9 +110,9 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/last_name_t_i_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/edit_text_height"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_bwt_edit_text"
                 android:layout_marginBottom="@dimen/margin_bwt_edit_text"
                 android:hint="@string/last_name"
@@ -127,28 +129,29 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/email_t_i_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_height"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_bwt_edit_text"
-                android:hint="@string/email"
+                android:hint="@string/email_mandatory"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/last_name_t_i_layout">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/email_et"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/birthday_t_i_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_height"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_bwt_edit_text"
-                android:hint="@string/date_of_birth"
+                android:hint="@string/date_of_birth_mandatory"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email_t_i_layout">
 

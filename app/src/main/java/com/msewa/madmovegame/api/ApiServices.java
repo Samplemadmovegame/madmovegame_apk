@@ -1,6 +1,7 @@
 package com.msewa.madmovegame.api;
 
 import com.google.gson.JsonObject;
+import com.msewa.madmovegame.api.models.UserInfo;
 
 import org.json.JSONObject;
 
