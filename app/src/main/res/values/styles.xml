@@ -31,4 +31,11 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <!-- Theme.AppCompat.Light is not a dialog theme -->
+    <style name="DatePicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorSecondary">@color/black</item>class
+    </style>
+
 </resources>

@@ -14,7 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.msewa.madmovegame.R;
 import com.msewa.madmovegame.api.ApiClient;
@@ -22,6 +24,9 @@ import com.msewa.madmovegame.api.ApiServices;
 import com.msewa.madmovegame.common.LoadingDialog;
 import com.msewa.madmovegame.util.AppAnimationUtil;
 import com.msewa.madmovegame.util.Util;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,7 +46,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private LoginFragmentListeners mListeners;
     private String deviceId;
     private ApiServices baseService;
-    private Call<JsonObject> loginService;
+    private Call<JSONObject> loginService;
     private LoadingDialog loadingDialog;
 
 
@@ -102,8 +107,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             case R.id.forget_password_bt:
                 if (mobileNoEt.getText().toString().length() == 10)
                     mListeners.openForgetPasswordFragment();
-                else
+                else {
+                    mobileNoEt.requestFocus();
                     mobileNoEt.setError(getString(R.string.error_msg_10_digit_number));
+                }
                 break;
 
             case R.id.create_account_bt:
@@ -111,13 +118,17 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.login_bt:
+
                 if (mobileNoEt.getText().toString().length() == 10) {
                     if (passwordEt.getText().toString().length() == 6)
                         login(mobileNoEt.getText().toString(), passwordEt.getText().toString());
-                    else
+                    else {
+                        passwordEt.requestFocus();
                         passwordEt.setError(getString(R.string.error_msg_six_digit_password));
+                    }
 
                 } else {
+                    mobileNoEt.requestFocus();
                     mobileNoEt.setError(getString(R.string.error_msg_10_digit_number));
                 }
                 break;
@@ -156,27 +167,58 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void login(String mobileNo, String password) {
 
+        loadingDialog.show();
+
         if (Util.getAndroidId(getActivity()) != null) {
             deviceId = Util.getAndroidId(getActivity());
         }
         loginService = baseService.login(mobileNo, password, deviceId);
 
         loadingDialog.show();
-        loginService.enqueue(new Callback<JsonObject>() {
+        loginService.enqueue(new Callback<JSONObject>() {
             @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+            public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
                 loadingDialog.dismiss();
+
+                try {
+
+                    String code = response.body().getString("code");
+                    String message = response.body().getString("message");
+
+                    if (code != null && code.equals("S00")) {
+                        JSONObject details = response.body().getJSONObject("details");
+                        String sessionId = details.getString("sessionId");
+                    }
+
+                    showToast(message);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    showToast(getString(R.string.something_went_wrong));
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                    showToast(getString(R.string.something_went_wrong));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    showToast(getString(R.string.something_went_wrong));
+                }
+
+                // api Response
+                // {  "code": "S00",  "message": "Login Successful", "status": "Success",  "details": { "sessionId": "1tr1z6scyp4et7bglhqljnpxm"} }
 
             }
 
             @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+            public void onFailure(Call<JSONObject> call, Throwable t) {
                 loadingDialog.dismiss();
-
+                showToast(t.getMessage());
             }
         });
-        //@TODO need to remove ,just use for completing the flow
-        mListeners.openHomeFragment();
+
+    }
+
+    private void showToast(String msg) {
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

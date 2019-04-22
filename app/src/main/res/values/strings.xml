@@ -65,5 +65,9 @@
     <string name="forgot_password">CHANGE PASSWORD</string>
     <string name="conform_pass">Conform Password</string>
     <string name="change">Change</string>
+    <string name="something_went_wrong">Something Went Wrong</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

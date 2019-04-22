@@ -9,12 +9,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.msewa.madmovegame.R;
 import com.msewa.madmovegame.api.ApiClient;
 import com.msewa.madmovegame.api.ApiServices;
 import com.msewa.madmovegame.common.LoadingDialog;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,7 +42,7 @@ public class OtpFrag extends Fragment {
     private ApiServices baseService;
     private String mobileNo;
     private LoadingDialog loadingDialog;
-    private Call<JsonObject> jsonObjectCall;
+    private Call<JSONObject> jsonObjectCall;
 
     public OtpFrag() {
         // Required empty public constructor
@@ -96,40 +100,67 @@ public class OtpFrag extends Fragment {
 
         jsonObjectCall = baseService.verifyOTP(mobileNo, otp);
 
-        jsonObjectCall.enqueue(new Callback<JsonObject>() {
+        jsonObjectCall.enqueue(new Callback<JSONObject>() {
             @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+            public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
                 loadingDialog.dismiss();
+
+                try {
+
+                    String code = response.body().getString("code");
+                    String message = response.body().getString("message");
+
+                    if (code != null && code.equals("S00")) {
+                        JSONObject details = response.body().getJSONObject("details");
+                    }
+
+                    showToast(message);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    showToast(getString(R.string.something_went_wrong));
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                    showToast(getString(R.string.something_went_wrong));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    showToast(getString(R.string.something_went_wrong));
+                }
 
             }
 
             @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+            public void onFailure(Call<JSONObject> call, Throwable t) {
                 loadingDialog.dismiss();
 
             }
         });
 
-
         //@TODO
         mListener.onClickSubmit();
     }
+
+
+    private void showToast(String msg) {
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
+
 
     private void sendOTP(String mobileNo) {
 
         loadingDialog.show();
 
-        Call<JsonObject> jsonObjectCall = baseService.sendOTP(mobileNo);
-        jsonObjectCall.enqueue(new Callback<JsonObject>() {
+        Call<JSONObject> jsonObjectCall = baseService.sendOTP(mobileNo);
+        jsonObjectCall.enqueue(new Callback<JSONObject>() {
             @Override
-            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+            public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
                 loadingDialog.dismiss();
-                JsonObject body = response.body();
+                JSONObject body = response.body();
                 // Log.i(TAG, body.toString());
             }
 
             @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
+            public void onFailure(Call<JSONObject> call, Throwable t) {
                 loadingDialog.dismiss();
                 // Log.i(TAG, t.getCause().toString());
             }

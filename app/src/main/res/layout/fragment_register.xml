@@ -47,38 +47,76 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:padding="@dimen/login_page_padding">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/contact_t_i_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:hint="@string/contact"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/contact_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/password_t_i_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginTop="@dimen/margin_bwt_edit_text"
+                android:hint="@string/password"
+                app:layout_constraintTop_toBottomOf="@+id/contact_t_i_layout"
+                app:passwordToggleEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/password_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:maxLength="6" />
+
+            </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/first_name_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="@dimen/dim_0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/dim_20dp"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginRight="@dimen/dim_15dp"
                 android:hint="@string/first_name"
+                app:layout_constraintBottom_toTopOf="@+id/email_t_i_layout"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/last_name_t_i_layout"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/password_t_i_layout">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/first_name_et"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:maxLines="1" />
 
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/last_name_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="@dimen/dim_0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/edit_text_height"
+                android:layout_marginTop="@dimen/margin_bwt_edit_text"
                 android:layout_marginBottom="@dimen/margin_bwt_edit_text"
-                android:layout_toRightOf="@+id/first_name_t_i_layout"
                 android:hint="@string/last_name"
                 app:layout_constraintLeft_toRightOf="@+id/first_name_t_i_layout"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/password_t_i_layout">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/last_name_et"
@@ -91,9 +129,8 @@
                 android:id="@+id/email_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/edit_text_height"
                 android:layout_marginTop="@dimen/margin_bwt_edit_text"
-                android:layout_toRightOf="@+id/first_name_t_i_layout"
                 android:hint="@string/email"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/last_name_t_i_layout">
@@ -106,20 +143,20 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/contact_t_i_layout"
+                android:id="@+id/birthday_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/edit_text_height"
                 android:layout_marginTop="@dimen/margin_bwt_edit_text"
-                android:layout_toRightOf="@+id/first_name_t_i_layout"
-                android:hint="@string/contact"
+                android:hint="@string/date_of_birth"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email_t_i_layout">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/contact_et"
+                    android:id="@+id/birthday_et"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:focusable="false" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -129,13 +166,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_bwt_edit_text"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/contact_t_i_layout">
+                app:layout_constraintTop_toBottomOf="@+id/birthday_t_i_layout">
 
                 <RadioButton
                     android:id="@+id/male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="@string/male"
                     android:textSize="@dimen/dim_17sp" />
 

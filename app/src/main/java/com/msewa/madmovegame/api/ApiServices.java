@@ -2,6 +2,8 @@ package com.msewa.madmovegame.api;
 
 import com.google.gson.JsonObject;
 
+import org.json.JSONObject;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -11,14 +13,21 @@ public interface ApiServices {
 
     @FormUrlEncoded
     @POST("login/otp")
-    Call<JsonObject> sendOTP(@Field("contactNo") String mobileNo);
+    Call<JSONObject> sendOTP(@Field("contactNo") String mobileNo);
 
     @FormUrlEncoded
     @POST("login/otpVerify")
-    Call<JsonObject> verifyOTP(@Field("contactNo") String mobileNo, @Field("key") String otp);
+    Call<JSONObject> verifyOTP(@Field("contactNo") String mobileNo, @Field("key") String otp);
 
+
+    //@TODO add api parameter
+    @FormUrlEncoded
+    @POST("login/otp")
+    Call<JSONObject> registerUser(@Field("contactNo") String mobileNo);
+
+    @FormUrlEncoded
     @POST("/login/process")
-    Call<JsonObject> login(@Field("username") String mobileNo, @Field("password") String password, @Field("deviceId") String deviceId);
+    Call<JSONObject> login(@Field("username") String mobileNo, @Field("password") String password, @Field("deviceId") String deviceId);
 }
 
 
