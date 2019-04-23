@@ -45,7 +45,11 @@ public class AppSharePref {
      * @param context it should be application context  {@link Context#getApplicationContext()}
      */
     public static boolean isUserLoggedIn(Context context) {
-        return getAppSharePref(context).getBoolean(LOGIN, false);
+        String string = getAppSharePref(context).getString(SESSION_ID, "");
+        if (string != null && !string.equals("")) {
+            return true;
+        }
+        return false;
     }
 
 
@@ -98,4 +102,5 @@ public class AppSharePref {
 
         return new UserInfo(firstName, lastName, email, gender, mobileNo, password, sessionId);
     }
+
 }

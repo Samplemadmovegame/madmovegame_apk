@@ -62,8 +62,8 @@
     <string name="error_msg_six_digit_otp">Please Enter Six Digit OTP Number</string>
     <string name="please_wait">Please wait ...</string>
     <string name="error_msg_six_digit_password">Please Enter Six Digit Password</string>
-    <string name="forgot_password">CHANGE PASSWORD</string>
-    <string name="conform_pass">Conform Password</string>
+    <string name="forgot_password">FORGOT PASSWORD ?</string>
+    <string name="confirm_pass">Confirm Password</string>
     <string name="change">Change</string>
     <string name="something_went_wrong">Something Went Wrong</string>
     <string name="date_of_birth">Date of Birth</string>
@@ -83,5 +83,10 @@
     <string name="error_msg_enter_valid_first_name">Name atleast 3 letter</string>
     <string name="error_msg_valid_18_years">You must be at least 18 years old to Register</string>
     <string name="error_msg_enter_mobile_no">Enter Mobile Number</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="error_msg_enter_otp">Enter OTP</string>
+    <string name="error_msg_password_not_matched">Password Not Matched</string>
+    <string name="msg_sent_otp_1">OTP has been sent to</string>
+    <string name="msg_sent_otp_2">It may take few minutes receiving OTP, depending on mobile network.</string>
 
 </resources>

@@ -47,99 +47,105 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_1">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/otp_layout"
+
+        <TextView
+            android:id="@+id/msg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_toLeftOf="@+id/mobileNo_tv"
+            android:text="@string/msg_sent_otp_1"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/mobileNo_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="7415240624"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/msg2"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dim_40dp"
-            android:layout_margin="@dimen/dim_5dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/msg1"
+            android:layout_marginTop="@dimen/dim_5dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/otp_t_i_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/msg2"
+            android:hint="@string/enter_otp"
             app:cardCornerRadius="@dimen/dim_10dp">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/otp_et"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/dim_5dp"
-                android:layout_marginRight="@dimen/dim_5dp"
-                android:background="@color/white"
-                android:gravity="center"
-                android:hint="@string/enter_otp"
-                android:inputType="number"></EditText>
+                android:inputType="number" />
 
-        </android.support.v7.widget.CardView>
+        </android.support.design.widget.TextInputLayout>
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/password_layout"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/password_t_i_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dim_40dp"
-            android:layout_below="@+id/otp_layout"
-            android:layout_margin="@dimen/dim_5dp"
-            app:cardCornerRadius="@dimen/dim_10dp">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/otp_t_i_layout"
+            android:layout_marginTop="@dimen/margin_bwt_edit_text"
+            android:hint="@string/password"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorPrimary">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/password_et"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/dim_5dp"
-                android:layout_marginRight="@dimen/dim_5dp"
-                android:background="@color/white"
-                android:gravity="center"
-                android:hint="@string/password"
-                android:inputType="textPassword" />
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLength="6" />
 
-            <ImageButton
-                android:id="@+id/password_eye_bt"
-                android:layout_width="@dimen/dim_25dp"
-                android:layout_height="@dimen/dim_25dp"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginRight="@dimen/dim_10dp"
-                android:background="@drawable/show_password_eye_toggle" />
+        </android.support.design.widget.TextInputLayout>
 
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/conform_password_layout"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/conform_password_t_i_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dim_40dp"
-            android:layout_below="@+id/password_layout"
-            android:layout_margin="@dimen/dim_5dp"
-            app:cardCornerRadius="@dimen/dim_10dp">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password_t_i_layout"
+            android:layout_marginTop="@dimen/margin_bwt_edit_text"
+            android:hint="@string/confirm_password"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorPrimary">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/conform_password_et"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/dim_5dp"
-                android:layout_marginRight="@dimen/dim_5dp"
-                android:background="@color/white"
-                android:gravity="center"
-                android:hint="@string/conform_pass"
-                android:inputType="textPassword" />
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:maxLength="6" />
 
-            <ImageButton
-                android:id="@+id/conform_password_eye_bt"
-                android:layout_width="@dimen/dim_25dp"
-                android:layout_height="@dimen/dim_25dp"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginRight="@dimen/dim_10dp"
-                android:background="@drawable/show_password_eye_toggle" />
-
-
-        </android.support.v7.widget.CardView>
+        </android.support.design.widget.TextInputLayout>
 
 
         <android.support.v7.widget.CardView
             android:id="@+id/change_layout"
             android:layout_width="@dimen/dim_100dp"
             android:layout_height="@dimen/dim_40dp"
-            android:layout_below="@+id/conform_password_layout"
+            android:layout_below="@+id/conform_password_t_i_layout"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/dim_5dp"
             android:layout_marginTop="@dimen/dim_70dp"
             app:cardCornerRadius="@dimen/dim_10dp">
 
             <Button
-                android:id="@+id/submit_bt"
+                android:id="@+id/change_bt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
@@ -152,7 +158,7 @@
         <android.support.v7.widget.CardView
             android:layout_width="@dimen/dim_100dp"
             android:layout_height="@dimen/dim_40dp"
-            android:layout_below="@+id/conform_password_layout"
+            android:layout_below="@+id/conform_password_t_i_layout"
             android:layout_alignParentRight="true"
             android:layout_marginTop="@dimen/dim_70dp"
             android:layout_marginRight="@dimen/dim_5dp"

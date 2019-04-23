@@ -47,6 +47,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private String deviceId;
     private ApiServices baseService;
     private Call<JSONObject> loginService;
+    private Call<JSONObject> forgetPasswordService;
     private LoadingDialog loadingDialog;
     private TextInputLayout mobileTILayout, passwordTILayout;
 
@@ -114,9 +115,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.forget_password_bt:
-                if (mobileNoEt.getText().toString().length() == 10)
-                    mListeners.openForgetPasswordFragment();
-                else {
+                if (mobileNoEt.getText().toString().length() == 10) {
+                    sendOTPforgetPassword();
+                    mListeners.openForgetPasswordFragment(mobileNoEt.getText().toString());
+                } else {
                     mobileNoEt.requestFocus();
                     mobileTILayout.setError(getString(R.string.error_msg_10_digit_number));
                 }
@@ -135,6 +137,48 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 break;
         }
 
+    }
+
+    private void sendOTPforgetPassword() {
+
+        loadingDialog.show();
+
+        forgetPasswordService = baseService.forgetPassword(mobileNoEt.getText().toString());
+
+        forgetPasswordService.enqueue(new Callback<JSONObject>() {
+            @Override
+            public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
+                loadingDialog.dismiss();
+                try {
+
+                    String code = response.body().getString("code");
+                    String message = response.body().getString("message");
+
+                    if (code != null && code.equals("S00")) {
+                        JSONObject details = response.body().getJSONObject("details");
+                    }
+
+                    showToast(message);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    showToast(getString(R.string.something_went_wrong));
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                    showToast(getString(R.string.something_went_wrong));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    showToast(getString(R.string.something_went_wrong));
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<JSONObject> call, Throwable t) {
+                loadingDialog.dismiss();
+                showToast(t.getMessage());
+            }
+        });
     }
 
 
@@ -231,7 +275,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     //Interface
     public interface LoginFragmentListeners {
 
-        void openForgetPasswordFragment();
+        void openForgetPasswordFragment(String mobile);
 
         void openCreateAccountFragment();
 
