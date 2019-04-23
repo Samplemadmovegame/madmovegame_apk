@@ -2,6 +2,8 @@ package com.msewa.madmovegame.auth.register;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +40,8 @@ public class OtpFrag extends Fragment {
     private OnOTPFragmentInteractionListener mListener;
     private Button submitBt;
     private TextView resendBt;
-    private EditText otpEt;
+    private TextInputEditText otpEt;
+    private TextInputLayout otpTILayout;
     private ApiServices baseService;
     private String mobileNo;
     private LoadingDialog loadingDialog;
@@ -70,6 +73,7 @@ public class OtpFrag extends Fragment {
         View view = inflater.inflate(R.layout.fragment_otp, container, false);
         submitBt = view.findViewById(R.id.submit_bt);
         otpEt = view.findViewById(R.id.otp_et);
+        otpTILayout = view.findViewById(R.id.otp_t_i_layout);
         resendBt = view.findViewById(R.id.resend_otp_bt);
 
         submitBt.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +82,7 @@ public class OtpFrag extends Fragment {
                 if (otpEt.getText().toString().length() == 6)
                     sendVerifyOTP(otpEt.getText().toString());
                 else
-                    otpEt.setError(getString(R.string.error_msg_six_digit_otp));
+                    otpTILayout.setError(getString(R.string.error_msg_six_digit_otp));
             }
         });
 

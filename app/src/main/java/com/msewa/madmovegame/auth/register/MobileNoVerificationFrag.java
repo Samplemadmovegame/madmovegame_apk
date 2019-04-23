@@ -4,7 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,11 +38,12 @@ import retrofit2.Response;
  * Use the {@link MobileNoVerificationFrag#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MobileNoVerificationFrag extends Fragment {
+public class MobileNoVerificationFrag extends Fragment implements TextWatcher {
 
     public static final String TAG = "MobileNoVerifyFrag";
     private Button verifyBt;
-    private EditText mobileNoEt;
+    private TextInputEditText mobileNoEt;
+    private TextInputLayout mobileTILayout;
 
 
     private OnMobileNoVerificationFragInteractionListener mListener;
@@ -71,15 +76,20 @@ public class MobileNoVerificationFrag extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mobile_number_verification, container, false);
         verifyBt = view.findViewById(R.id.verify_button);
-        mobileNoEt = view.findViewById(R.id.mobile_no_ed);
+        mobileNoEt = view.findViewById(R.id.contact_et);
+        mobileTILayout = view.findViewById(R.id.contact_t_i_layout);
+
+        mobileNoEt.addTextChangedListener(this);
         verifyBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (isMobileNoValid())
 
-                if (mobileNoEt.getText().toString().length() == 10)
-                    sendOTP(mobileNoEt.getText().toString());
-                else
-                    mobileNoEt.setError(getString(R.string.error_msg_10_digit_number));
+                    // sendOTP(mobileNoEt.getText().toString().trim());
+
+                    //@TODO for test
+                    mListener.onClickVerify(mobileNoEt.getText().toString());
+
             }
         });
 
@@ -109,6 +119,7 @@ public class MobileNoVerificationFrag extends Fragment {
 
                     if (code != null && code.equals("S00")) {
                         JSONObject details = response.body().getJSONObject("details");
+                        mListener.onClickVerify(mobileNoEt.getText().toString().trim());
                     }
 
                     showToast(message);
@@ -139,6 +150,24 @@ public class MobileNoVerificationFrag extends Fragment {
         Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
+    private boolean isMobileNoValid() {
+
+        if (mobileNoEt.getText().toString().isEmpty()) {
+            mobileTILayout.setError(getString(R.string.error_msg_enter_mobile_no));
+            mobileNoEt.requestFocus();
+            return false;
+
+        } else if (mobileNoEt.getText().toString().trim().length() < 10) {
+            mobileNoEt.requestFocus();
+            mobileTILayout.setError(getString(R.string.error_msg_10_digit_number));
+            return false;
+        } else {
+            mobileTILayout.setErrorEnabled(false);
+        }
+
+        return true;
+    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -155,6 +184,21 @@ public class MobileNoVerificationFrag extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        isMobileNoValid();
     }
 
     /**

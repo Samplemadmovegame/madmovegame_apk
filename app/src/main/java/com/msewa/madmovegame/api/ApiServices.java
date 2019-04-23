@@ -17,17 +17,16 @@ public interface ApiServices {
     Call<JSONObject> sendOTP(@Field("contactNo") String mobileNo);
 
     @FormUrlEncoded
-    @POST("login/otpVerify")
+    @POST("Verify/Otp")
     Call<JSONObject> verifyOTP(@Field("contactNo") String mobileNo, @Field("key") String otp);
 
 
-    //@TODO add api parameter
     @FormUrlEncoded
-    @POST("login/otp")
-    Call<JSONObject> registerUser(@Field("contactNo") String mobileNo);
+    @POST("register")
+    Call<JSONObject> registerUser(@Field("firstName") String firstName, @Field("lastName") String lastName, @Field("email") String email, @Field("gender") String gender, @Field("contactNo") String contactNo, @Field("password") String password);
 
     @FormUrlEncoded
-    @POST("/login/process")
+    @POST("login/process")
     Call<JSONObject> login(@Field("username") String mobileNo, @Field("password") String password, @Field("deviceId") String deviceId);
 }
 

@@ -2,27 +2,28 @@ package com.msewa.madmovegame.auth.login;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.text.InputType;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.msewa.madmovegame.R;
 import com.msewa.madmovegame.api.ApiClient;
 import com.msewa.madmovegame.api.ApiServices;
 import com.msewa.madmovegame.common.LoadingDialog;
+import com.msewa.madmovegame.home.HomeActivity;
 import com.msewa.madmovegame.util.AppAnimationUtil;
+import com.msewa.madmovegame.util.AppSharePref;
 import com.msewa.madmovegame.util.Util;
 
 import org.json.JSONException;
@@ -41,13 +42,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private EditText mobileNoEt, passwordEt;
     private TextView forgetPasswordBt, createAccountBt;
     private Button loginBt;
-    private ImageButton passwordEyeBt;
 
     private LoginFragmentListeners mListeners;
     private String deviceId;
     private ApiServices baseService;
     private Call<JSONObject> loginService;
     private LoadingDialog loadingDialog;
+    private TextInputLayout mobileTILayout, passwordTILayout;
 
 
     public LoginFragment() {
@@ -73,17 +74,26 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
-        mobileNoEt = view.findViewById(R.id.mobileNo_et);
+        mobileNoEt = view.findViewById(R.id.contact_et);
         passwordEt = view.findViewById(R.id.password_et);
         forgetPasswordBt = view.findViewById(R.id.forget_password_bt);
         createAccountBt = view.findViewById(R.id.create_account_bt);
-        passwordEyeBt = view.findViewById(R.id.password_eye_bt);
         loginBt = view.findViewById(R.id.login_bt);
+
+        mobileTILayout = view.findViewById(R.id.contact_t_i_layout);
+        passwordTILayout = view.findViewById(R.id.password_t_i_layout);
+
 
         // init animation for views
         AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, forgetPasswordBt);
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, mobileNoEt);
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, passwordEt);
+        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, mobileTILayout);
+        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, passwordTILayout);
+
+        /**
+         * set text change listener for text field  where  this method listen to text change {@link MyTextWatcher#afterTextChanged(Editable)}
+         */
+        mobileNoEt.addTextChangedListener(new MyTextWatcher(mobileNoEt));
+        passwordEt.addTextChangedListener(new MyTextWatcher(passwordEt));
 
 
         /**
@@ -92,7 +102,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         forgetPasswordBt.setOnClickListener(this);
         createAccountBt.setOnClickListener(this);
         loginBt.setOnClickListener(this);
-        passwordEyeBt.setOnClickListener(this);
 
         // init custom progressing dialog
         loadingDialog = new LoadingDialog(getActivity());
@@ -109,7 +118,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     mListeners.openForgetPasswordFragment();
                 else {
                     mobileNoEt.requestFocus();
-                    mobileNoEt.setError(getString(R.string.error_msg_10_digit_number));
+                    mobileTILayout.setError(getString(R.string.error_msg_10_digit_number));
                 }
                 break;
 
@@ -118,37 +127,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.login_bt:
-
-                if (mobileNoEt.getText().toString().length() == 10) {
-                    if (passwordEt.getText().toString().length() == 6)
-                        login(mobileNoEt.getText().toString(), passwordEt.getText().toString());
-                    else {
-                        passwordEt.requestFocus();
-                        passwordEt.setError(getString(R.string.error_msg_six_digit_password));
-                    }
-
-                } else {
-                    mobileNoEt.requestFocus();
-                    mobileNoEt.setError(getString(R.string.error_msg_10_digit_number));
+                if (isMobileNoValid() && isPasswordValid()) {
+                    // login(mobileNoEt.getText().toString(), passwordEt.getText().toString());
+                    startActivity(new Intent(getActivity(), HomeActivity.class));
+                    getActivity().finish();
                 }
-                break;
-
-            case R.id.password_eye_bt:
-
-                if (passwordEyeBt.isSelected()) {
-                    passwordEyeBt.setSelected(false);
-                    passwordEt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    passwordEt.setSelection(passwordEt.length());
-                    passwordEt.setTypeface(mobileNoEt.getTypeface());
-
-                } else {
-                    passwordEyeBt.setSelected(true);
-                    passwordEt.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                    passwordEt.setSelection(passwordEt.length());
-                    passwordEt.setTypeface(mobileNoEt.getTypeface());
-
-                }
-
                 break;
         }
 
@@ -188,6 +171,17 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     if (code != null && code.equals("S00")) {
                         JSONObject details = response.body().getJSONObject("details");
                         String sessionId = details.getString("sessionId");
+
+                        //@TODO for test
+                        String firstName = "deW";
+                        String lastName = "laliT";
+                        String password = "123456";
+                        String gender = "male";
+                        String mobileNo = "7415240624";
+                        String email = "lkumar@msewa.com";
+
+                        // set user info locally
+                        // AppSharePref.setUserInfo(firstName, lastName, password, sessionId, gender, email, mobileNo, getActivity().getApplicationContext());
                     }
 
                     showToast(message);
@@ -242,5 +236,69 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         void openCreateAccountFragment();
 
         void openHomeFragment();
+    }
+
+    class MyTextWatcher implements TextWatcher {
+        View v;
+
+        public MyTextWatcher(View v) {
+            this.v = v;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            switch (v.getId()) {
+                case R.id.contact_et:
+                    isMobileNoValid();
+                    break;
+                case R.id.password_et:
+                    isPasswordValid();
+                    break;
+            }
+
+        }
+    }
+
+    private boolean isPasswordValid() {
+        if (passwordEt.getText().toString().isEmpty()) {
+            passwordTILayout.setError(getString(R.string.error_msg_enter_password));
+            passwordEt.requestFocus();
+            return false;
+        } else if (passwordEt.getText().toString().length() < 6) {
+            passwordTILayout.setError(getString(R.string.error_msg_six_digit_password));
+            passwordEt.requestFocus();
+            return false;
+        } else {
+            passwordTILayout.setErrorEnabled(false);
+        }
+        return true;
+    }
+
+    private boolean isMobileNoValid() {
+
+        if (mobileNoEt.getText().toString().isEmpty()) {
+            mobileTILayout.setError(getString(R.string.error_msg_enter_mobile_no));
+            mobileNoEt.requestFocus();
+            return false;
+
+        } else if (mobileNoEt.getText().toString().trim().length() < 10) {
+            mobileNoEt.requestFocus();
+            mobileTILayout.setError(getString(R.string.error_msg_10_digit_number));
+            return false;
+        } else {
+            mobileTILayout.setErrorEnabled(false);
+        }
+
+        return true;
     }
 }

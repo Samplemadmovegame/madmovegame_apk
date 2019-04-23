@@ -4,6 +4,7 @@ package com.msewa.madmovegame.auth.register;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -24,7 +25,10 @@ import com.msewa.madmovegame.R;
 import com.msewa.madmovegame.api.ApiClient;
 import com.msewa.madmovegame.api.ApiServices;
 import com.msewa.madmovegame.api.models.UserInfo;
+import com.msewa.madmovegame.auth.login.LoginActivity;
+import com.msewa.madmovegame.auth.login.LoginFragment;
 import com.msewa.madmovegame.common.LoadingDialog;
+import com.msewa.madmovegame.util.AppSharePref;
 import com.msewa.madmovegame.util.Util;
 
 import org.json.JSONException;
@@ -116,7 +120,20 @@ public class RegisterFragment extends Fragment {
                 if (!isPasswordValid() || !isFirstNameValid() || !isEmailValid() || !isDOBValid()) {
                     return;
                 } else {
-                    registerUser();
+                    //registerUser();
+
+                    //@TODO for test
+                    String firstName = firstNameEt.getText().toString();
+                    String lastName = lastNameEt.getText().toString();
+                    String password = passwordEt.getText().toString();
+                    String mobileNo = mobileNoEt.getText().toString();
+                    String gender = mGender;
+                    String email = emailEt.getText().toString();
+                    String sessionId = "9420200-wjsdfjlsj000";
+                    AppSharePref.setUserInfo(firstName, lastName, password, sessionId, gender, email, mobileNo, getActivity().getApplicationContext());
+                    //
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                    getActivity().finish();
                 }
             }
         });
@@ -163,7 +180,14 @@ public class RegisterFragment extends Fragment {
 
     private void registerUser() {
 
-        userService = baseService.registerUser("");
+        String firstName = firstNameEt.getText().toString();
+        String lastName = lastNameEt.getText().toString();
+        String password = passwordEt.getText().toString();
+        String mobileNo = mobileNoEt.getText().toString();
+        String gender = mGender;
+        String email = emailEt.getText().toString();
+
+        userService = baseService.registerUser(firstName, lastName, email, gender, mobileNo, password);
 
         loadingDialog.show();
 
@@ -179,8 +203,7 @@ public class RegisterFragment extends Fragment {
                     String status = response.body().getString("status");
 
                     if (code != null && code.equals("S00") && status.equals("Success")) {
-                        //@TODO
-
+                        mListener.onClickSubmitFormButton();
                     }
 
                     showToast(message);

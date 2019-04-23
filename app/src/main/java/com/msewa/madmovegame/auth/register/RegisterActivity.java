@@ -14,7 +14,7 @@ public class RegisterActivity extends AppCompatActivity implements MobileNoVerif
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, RegisterFragment.newInstance("7415240624")).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, MobileNoVerificationFrag.newInstance()).commit();
     }
 
     @Override
