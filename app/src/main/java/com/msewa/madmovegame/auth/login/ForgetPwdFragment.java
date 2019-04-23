@@ -35,7 +35,7 @@ public class ForgetPwdFragment extends Fragment {
     private TextInputEditText otpEt, passwordEt, conformPasswordEt;
     private TextInputLayout otpTILayout, passwordTILayout, conformTILayout;
     private Button chageBt, resendOtpBt;
-    private TextView msg1, mobileNoTv, msg2;
+    private TextView mobileNoTv;
     private String mobileNo;
     private ApiServices baseService;
     private Call<JSONObject> sentOTPService;
@@ -70,9 +70,7 @@ public class ForgetPwdFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_forget_pwd, container, false);
-        msg1 = view.findViewById(R.id.msg1);
         mobileNoTv = view.findViewById(R.id.mobileNo_tv);
-        msg2 = view.findViewById(R.id.msg2);
         otpEt = view.findViewById(R.id.otp_et);
         passwordEt = view.findViewById(R.id.password_et);
         conformPasswordEt = view.findViewById(R.id.conform_password_et);
@@ -82,10 +80,8 @@ public class ForgetPwdFragment extends Fragment {
         chageBt = view.findViewById(R.id.change_bt);
         resendOtpBt = view.findViewById(R.id.resend_otp_bt);
 
-        // set default msg after sent OTP.
-        msg1.setText(getString(R.string.msg_sent_otp_1));
+        // set mobile no in  msg after sent OTP.
         mobileNoTv.setText(" "+mobileNo);
-        msg2.setText(getString(R.string.msg_sent_otp_2));
 
         // set click listener for buttons
         chageBt.setOnClickListener(new View.OnClickListener() {

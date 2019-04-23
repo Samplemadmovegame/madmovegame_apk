@@ -47,34 +47,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_1">
 
-
-        <TextView
-            android:id="@+id/msg1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/msg_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_toLeftOf="@+id/mobileNo_tv"
-            android:text="@string/msg_sent_otp_1"
-            android:textColor="@color/colorPrimary" />
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/mobileNo_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="7415240624"
-            android:textColor="@color/colorPrimary"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/msg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/msg_sent_otp_1" />
+
+            <TextView
+                android:id="@+id/mobileNo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  7415240624"
+                android:textColor="@color/colorPrimary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/msg2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/msg1"
-            android:layout_marginTop="@dimen/dim_5dp"
+            android:layout_below="@+id/msg_layout"
+            android:layout_marginBottom="@dimen/dim_20dp"
             android:gravity="center"
-            android:textColor="@color/colorPrimary" />
+            android:text="@string/msg_sent_otp_2" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/otp_t_i_layout"
@@ -134,46 +137,54 @@
         </android.support.design.widget.TextInputLayout>
 
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/change_layout"
-            android:layout_width="@dimen/dim_100dp"
-            android:layout_height="@dimen/dim_40dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/conform_password_t_i_layout"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="@dimen/dim_5dp"
-            android:layout_marginTop="@dimen/dim_70dp"
-            app:cardCornerRadius="@dimen/dim_10dp">
+            android:layout_marginTop="@dimen/dim_50dp"
+            android:gravity="center">
 
-            <Button
-                android:id="@+id/change_bt"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:text="@string/change"
-                android:textColor="@color/colorPrimary" />
+            <android.support.v7.widget.CardView
+                android:id="@+id/change_layout"
+                android:layout_width="@dimen/dim_100dp"
+                android:layout_height="@dimen/dim_40dp"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:layout_marginBottom="@dimen/dim_5dp"
+                android:layout_marginLeft="@dimen/dim_5dp"
+                app:cardCornerRadius="@dimen/dim_10dp">
 
-        </android.support.v7.widget.CardView>
+                <Button
+                    android:id="@+id/change_bt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="@string/change"
+                    android:textColor="@color/colorPrimary" />
 
-        <android.support.v7.widget.CardView
-            android:layout_width="@dimen/dim_100dp"
-            android:layout_height="@dimen/dim_40dp"
-            android:layout_below="@+id/conform_password_t_i_layout"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="@dimen/dim_70dp"
-            android:layout_marginRight="@dimen/dim_5dp"
-            app:cardCornerRadius="@dimen/dim_10dp">
+            </android.support.v7.widget.CardView>
 
-            <Button
-                android:id="@+id/resend_otp_bt"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:text="@string/resend_otp"
-                android:textColor="@color/colorPrimary" />
+            <android.support.v7.widget.CardView
+                android:layout_width="@dimen/dim_100dp"
+                android:layout_height="@dimen/dim_40dp"
+                android:layout_marginTop="@dimen/dim_5dp"
+                android:layout_marginBottom="@dimen/dim_5dp"
+                android:layout_marginLeft="@dimen/dim_20dp"
+                app:cardCornerRadius="@dimen/dim_10dp">
 
-        </android.support.v7.widget.CardView>
+                <Button
+                    android:id="@+id/resend_otp_bt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="@string/resend_otp"
+                    android:textColor="@color/colorPrimary" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 

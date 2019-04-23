@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.msewa.madmovegame.R;
@@ -28,6 +30,7 @@ import com.msewa.madmovegame.api.models.UserInfo;
 import com.msewa.madmovegame.auth.login.LoginActivity;
 import com.msewa.madmovegame.auth.login.LoginFragment;
 import com.msewa.madmovegame.common.LoadingDialog;
+import com.msewa.madmovegame.termAndCondition.TermAndConditionActivity;
 import com.msewa.madmovegame.util.AppSharePref;
 import com.msewa.madmovegame.util.Util;
 
@@ -54,6 +57,7 @@ public class RegisterFragment extends Fragment {
     private TextInputEditText birthdayEt, mobileNoEt, passwordEt, firstNameEt, lastNameEt, emailEt;
     private TextInputLayout mobileTILayout, passwordTILayout, firstNameTILayout, lastNameTILayout, emailTILayout, birthdayTILayout;
     private RadioGroup genderRadioGroup;
+    private TextView termAndconditionBt;
     private String mMobileNo, mGender;
     private Call<JSONObject> userService;
     private LoadingDialog loadingDialog;
@@ -107,7 +111,8 @@ public class RegisterFragment extends Fragment {
         emailTILayout = view.findViewById(R.id.email_t_i_layout);
         birthdayTILayout = view.findViewById(R.id.birthday_t_i_layout);
         genderRadioGroup = view.findViewById(R.id.radio_group_gender);
-
+        termAndconditionBt = view.findViewById(R.id.term_n_condition_tv);
+        termAndconditionBt.setPaintFlags(termAndconditionBt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         passwordEt.addTextChangedListener(new MyTextWatcher(passwordEt));
         firstNameEt.addTextChangedListener(new MyTextWatcher(firstNameEt));
@@ -166,6 +171,14 @@ public class RegisterFragment extends Fragment {
                         break;
 
                 }
+            }
+        });
+
+        termAndconditionBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO open trem and condition web view in activity
+                startActivity(new Intent(getActivity(), TermAndConditionActivity.class));
             }
         });
 

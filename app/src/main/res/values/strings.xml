@@ -88,5 +88,7 @@
     <string name="error_msg_password_not_matched">Password Not Matched</string>
     <string name="msg_sent_otp_1">OTP has been sent to</string>
     <string name="msg_sent_otp_2">It may take few minutes receiving OTP, depending on mobile network.</string>
+    <string name="term_and_condition">Term &amp; Condition</string>
+    <string name="term_and_condition_msg">By clicking &quot; Register &quot; , You agree with Our TERM &amp; CONDITION</string>
 
 </resources>

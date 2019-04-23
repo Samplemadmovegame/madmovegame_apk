@@ -14,9 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".termAndCondition.TermAndConditionActivity"
+            android:theme="@style/FullscreenTheme"></activity>
+        <activity
             android:name=".auth.register.RegisterActivity"
             android:theme="@style/FullscreenTheme"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".notification.NotificationActivity"
             android:theme="@style/FullscreenTheme" />
