@@ -92,7 +92,7 @@ public class MobileNoVerificationFrag extends Fragment implements TextWatcher {
                     // sendOTP(mobileNoEt.getText().toString().trim());
 
                     //@TODO for test
-                    mListener.onClickVerify(mobileNoEt.getText().toString());
+                    mListener.onClickVerify(mobileNoEt.getText().toString(),countryCode);
 
             }
         });
@@ -124,7 +124,7 @@ public class MobileNoVerificationFrag extends Fragment implements TextWatcher {
 
                     if (code != null && code.equals("S00")) {
                         JSONObject details = response.body().getJSONObject("details");
-                        mListener.onClickVerify(mobileNoEt.getText().toString().trim());
+                        mListener.onClickVerify(mobileNoEt.getText().toString().trim(),countryCode);
                     }
 
                     showToast(message);
@@ -217,6 +217,6 @@ public class MobileNoVerificationFrag extends Fragment implements TextWatcher {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnMobileNoVerificationFragInteractionListener {
-        void onClickVerify(String mobileNo);
+        void onClickVerify(String mobileNo,String countryCode);
     }
 }

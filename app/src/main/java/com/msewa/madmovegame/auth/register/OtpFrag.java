@@ -37,23 +37,26 @@ public class OtpFrag extends Fragment {
 
     private static final String TAG = "OtpFrag";
     private static final String ARG_PARAM_1 = "param1";
+    private static final String ARG_PARAM_2 = "param2";
     private OnOTPFragmentInteractionListener mListener;
     private Button submitBt;
-    private TextView resendBt;
+    private TextView resendBt, mobileNoTv;
     private TextInputEditText otpEt;
     private TextInputLayout otpTILayout;
     private ApiServices baseService;
     private String mobileNo;
     private LoadingDialog loadingDialog;
     private Call<JSONObject> jsonObjectCall;
+    private String countryCode;
 
     public OtpFrag() {
         // Required empty public constructor
     }
 
-    public static OtpFrag newInstance(String mobileNo) {
+    public static OtpFrag newInstance(String mobileNo, String countryCode) {
         Bundle args = new Bundle();
         args.putString(ARG_PARAM_1, mobileNo);
+        args.putString(ARG_PARAM_2, countryCode);
         OtpFrag fragment = new OtpFrag();
         fragment.setArguments(args);
         return fragment;
@@ -63,6 +66,7 @@ public class OtpFrag extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mobileNo = getArguments().getString(ARG_PARAM_1);
+        countryCode = getArguments().getString(ARG_PARAM_2);
         baseService = ApiClient.getInstance().getBaseService();
     }
 
@@ -73,6 +77,7 @@ public class OtpFrag extends Fragment {
         View view = inflater.inflate(R.layout.fragment_otp, container, false);
         submitBt = view.findViewById(R.id.submit_bt);
         otpEt = view.findViewById(R.id.otp_et);
+        mobileNoTv = view.findViewById(R.id.mobileNo_tv);
         otpTILayout = view.findViewById(R.id.otp_t_i_layout);
         resendBt = view.findViewById(R.id.resend_otp_bt);
 
@@ -94,6 +99,8 @@ public class OtpFrag extends Fragment {
         });
 
         loadingDialog = new LoadingDialog(getActivity());
+
+        mobileNoTv.setText(" "+countryCode + " " + mobileNo);
 
         return view;
     }
@@ -141,7 +148,7 @@ public class OtpFrag extends Fragment {
         });
 
         //@TODO
-        mListener.onClickSubmit();
+        mListener.onClickSubmit(mobileNo, countryCode);
     }
 
 
@@ -210,6 +217,6 @@ public class OtpFrag extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnOTPFragmentInteractionListener {
-        void onClickSubmit();
+        void onClickSubmit(String mobileNo, String countryCode);
     }
 }

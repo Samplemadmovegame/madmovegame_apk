@@ -53,13 +53,14 @@ public class RegisterFragment extends Fragment {
 
     private static final String TAG = "RegisterFragment";
     public static final String ARG_PARAM1 = "param1";
+    public static final String ARG_PARAM2 = "param2";
     private Button submitFormBt;
     private OnRegisterFragIntracationListener mListener;
     private TextInputEditText birthdayEt, mobileNoEt, passwordEt, firstNameEt, lastNameEt, emailEt;
     private TextInputLayout mobileTILayout, passwordTILayout, firstNameTILayout, lastNameTILayout, emailTILayout, birthdayTILayout;
     private RadioGroup genderRadioGroup;
     private TextView termAndconditionBt;
-    private String mMobileNo, mGender;
+    private String mMobileNo, mGender, mCountryCode;
     private Call<JSONObject> userService;
     private LoadingDialog loadingDialog;
     private ApiServices baseService;
@@ -77,9 +78,10 @@ public class RegisterFragment extends Fragment {
         return fragment;
     }
 
-    public static RegisterFragment newInstance(String mobileNo) {
+    public static RegisterFragment newInstance(String mobileNo,String mCountryCode) {
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, mobileNo);
+        args.putString(ARG_PARAM2, mCountryCode);
         RegisterFragment fragment = new RegisterFragment();
         fragment.setArguments(args);
         return fragment;
@@ -90,6 +92,7 @@ public class RegisterFragment extends Fragment {
         super.onCreate(savedInstanceState);
         baseService = ApiClient.getInstance().getBaseService();
         mMobileNo = getArguments().getString(ARG_PARAM1);
+        mCountryCode = getArguments().getString(ARG_PARAM2);
         mGender = getString(R.string.male);
     }
 
@@ -184,7 +187,7 @@ public class RegisterFragment extends Fragment {
         });
 
         // set data
-        mobileNoEt.setText(mMobileNo);
+        mobileNoEt.setText(mCountryCode + " " + mMobileNo);
         mobileNoEt.setFocusable(false);
 
         // init loading dialog
