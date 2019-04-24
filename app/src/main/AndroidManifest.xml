@@ -46,7 +46,7 @@
         <activity
             android:name=".auth.login.LoginActivity"
             android:theme="@style/FullscreenTheme"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".intro.IntroductionActivity"
             android:theme="@style/FullscreenTheme" />

@@ -1,6 +1,7 @@
 package com.msewa.madmovegame.auth.login;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
@@ -31,24 +32,27 @@ import retrofit2.Response;
 public class ForgetPwdFragment extends Fragment {
 
     public static final String TAG = "ForgetPwdFragment";
-    public static final String ARGS_PARAM = "param1";
+    public static final String ARGS_PARAM1 = "param1";
+    public static final String ARGS_PARAM2 = "param2";
     private TextInputEditText otpEt, passwordEt, conformPasswordEt;
     private TextInputLayout otpTILayout, passwordTILayout, conformTILayout;
     private Button chageBt, resendOtpBt;
     private TextView mobileNoTv;
-    private String mobileNo;
+    private String mobileNo, countryCode;
     private ApiServices baseService;
     private Call<JSONObject> sentOTPService;
     private Call<JSONObject> verifyForgotPasswordService;
     private LoadingDialog loadingDialog;
+    private OnForgetPwdFragIntractionListener mListeners;
 
     public ForgetPwdFragment() {
         // Required empty public constructor
     }
 
-    public static ForgetPwdFragment newInstance(String mobileNo) {
+    public static ForgetPwdFragment newInstance(String mobileNo, String countryCode) {
         Bundle args = new Bundle();
-        args.putString(ARGS_PARAM, mobileNo);
+        args.putString(ARGS_PARAM1, mobileNo);
+        args.putString(ARGS_PARAM2, countryCode);
         ForgetPwdFragment fragment = new ForgetPwdFragment();
         fragment.setArguments(args);
         return fragment;
@@ -57,9 +61,14 @@ public class ForgetPwdFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String param = getArguments().getString(ARGS_PARAM);
+        String param = getArguments().getString(ARGS_PARAM1);
+        String param2 = getArguments().getString(ARGS_PARAM2);
         if (param != null && !param.equals("")) {
             mobileNo = param;
+        }
+
+        if (param2 != null && !param2.equals("")) {
+            countryCode = param2;
         }
 
         baseService = ApiClient.getInstance().getBaseService();
@@ -81,7 +90,7 @@ public class ForgetPwdFragment extends Fragment {
         resendOtpBt = view.findViewById(R.id.resend_otp_bt);
 
         // set mobile no in  msg after sent OTP.
-        mobileNoTv.setText(" "+mobileNo);
+        mobileNoTv.setText(" " + countryCode + " " + mobileNo);
 
         // set click listener for buttons
         chageBt.setOnClickListener(new View.OnClickListener() {
@@ -243,6 +252,32 @@ public class ForgetPwdFragment extends Fragment {
         }
 
         return true;
+    }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListeners = (OnForgetPwdFragIntractionListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement OnForgetPwdFragIntractionListener");
+        }
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mListeners != null) {
+            mListeners.setForgetPwdTitle(getString(R.string.forgot_password));
+        }
+    }
+
+    interface OnForgetPwdFragIntractionListener {
+
+        void setForgetPwdTitle(String title);
     }
 
 }

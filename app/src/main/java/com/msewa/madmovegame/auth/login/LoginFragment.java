@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +55,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private Call<JSONObject> forgetPasswordService;
     private LoadingDialog loadingDialog;
     private TextInputLayout mobileTILayout, passwordTILayout;
+    private String mCountryCode = "+91";
 
 
     public LoginFragment() {
@@ -90,10 +93,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
 
         // init animation for views
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, forgetPasswordBt);
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, mobileTILayout);
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, passwordTILayout);
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, countryCodeLayout);
+
+        // AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, forgetPasswordBt);
+        //  AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, mobileTILayout);
+        // AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, passwordTILayout);
+        // AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, countryCodeLayout);
+        //  AppAnimationUtil.setAnimation(getActivity(), R.anim.bottom_to_top, createAccountBt);
+        //  AppAnimationUtil.setAnimation(getActivity(), R.anim.bottom_to_top, tv1);
 
         /**
          * set text change listener for text field  where  this method listen to text change {@link MyTextWatcher#afterTextChanged(Editable)}
@@ -122,7 +128,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             case R.id.forget_password_bt:
                 if (mobileNoEt.getText().toString().length() == 10) {
                     sendOTPforgetPassword();
-                    mListeners.openForgetPasswordFragment(mobileNoEt.getText().toString());
+                    mListeners.openForgetPasswordFragment(mobileNoEt.getText().toString(), mCountryCode);
                 } else {
                     mobileNoEt.requestFocus();
                     mobileTILayout.setError(getString(R.string.error_msg_10_digit_number));
@@ -247,9 +253,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     showToast(getString(R.string.something_went_wrong));
                 }
 
-                // api Response
-                // {  "code": "S00",  "message": "Login Successful", "status": "Success",  "details": { "sessionId": "1tr1z6scyp4et7bglhqljnpxm"} }
-
             }
 
             @Override
@@ -278,14 +281,24 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mListeners != null) {
+            mListeners.setLoginFragTitle(getString(R.string.login));
+        }
+    }
+
     //Interface
     public interface LoginFragmentListeners {
 
-        void openForgetPasswordFragment(String mobile);
+        void openForgetPasswordFragment(String mobile, String countryCode);
 
         void openCreateAccountFragment();
 
         void openHomeFragment();
+
+        void setLoginFragTitle(String s);
     }
 
     class MyTextWatcher implements TextWatcher {
