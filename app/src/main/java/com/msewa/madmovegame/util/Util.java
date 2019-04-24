@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 
 public class Util {
 
-
     public static String getAndroidId(Context context) {
         @SuppressLint("HardwareIds") String android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
         return android_id;

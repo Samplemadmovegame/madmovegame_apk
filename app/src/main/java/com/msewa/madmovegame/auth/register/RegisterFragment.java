@@ -32,6 +32,7 @@ import com.msewa.madmovegame.auth.login.LoginFragment;
 import com.msewa.madmovegame.common.LoadingDialog;
 import com.msewa.madmovegame.termAndCondition.TermAndConditionActivity;
 import com.msewa.madmovegame.util.AppSharePref;
+import com.msewa.madmovegame.util.Constant;
 import com.msewa.madmovegame.util.Util;
 
 import org.json.JSONException;
@@ -200,7 +201,7 @@ public class RegisterFragment extends Fragment {
         String gender = mGender;
         String email = emailEt.getText().toString();
 
-        userService = baseService.registerUser(firstName, lastName, email, gender, mobileNo, password);
+        userService = baseService.registerUser(firstName, lastName, email, gender, mobileNo, password, Constant.OS);
 
         loadingDialog.show();
 

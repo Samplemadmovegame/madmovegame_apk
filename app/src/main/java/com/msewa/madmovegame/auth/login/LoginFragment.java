@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import com.msewa.madmovegame.common.LoadingDialog;
 import com.msewa.madmovegame.home.HomeActivity;
 import com.msewa.madmovegame.util.AppAnimationUtil;
 import com.msewa.madmovegame.util.AppSharePref;
+import com.msewa.madmovegame.util.Constant;
 import com.msewa.madmovegame.util.Util;
 
 import org.json.JSONException;
@@ -42,6 +44,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private EditText mobileNoEt, passwordEt;
     private TextView forgetPasswordBt, createAccountBt;
     private Button loginBt;
+    private FrameLayout countryCodeLayout;
 
     private LoginFragmentListeners mListeners;
     private String deviceId;
@@ -80,6 +83,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         forgetPasswordBt = view.findViewById(R.id.forget_password_bt);
         createAccountBt = view.findViewById(R.id.create_account_bt);
         loginBt = view.findViewById(R.id.login_bt);
+        countryCodeLayout = view.findViewById(R.id.country_code_layout);
 
         mobileTILayout = view.findViewById(R.id.contact_t_i_layout);
         passwordTILayout = view.findViewById(R.id.password_t_i_layout);
@@ -87,8 +91,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         // init animation for views
         AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, forgetPasswordBt);
-        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, mobileTILayout);
+        AppAnimationUtil.setAnimation(getActivity(), R.anim.right_to_left, mobileTILayout);
         AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, passwordTILayout);
+        AppAnimationUtil.setAnimation(getActivity(), R.anim.left_to_right, countryCodeLayout);
 
         /**
          * set text change listener for text field  where  this method listen to text change {@link MyTextWatcher#afterTextChanged(Editable)}
@@ -188,7 +193,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
      * @param mobileNo user mobile number
      * @param password user given password
      *                 {@link #deviceId}
-     *                 <p>
+     *                 {@link Constant#OS}
      *                 this three data is required parameter for api login {@link #baseService}
      */
 
@@ -199,7 +204,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         if (Util.getAndroidId(getActivity()) != null) {
             deviceId = Util.getAndroidId(getActivity());
         }
-        loginService = baseService.login(mobileNo, password, deviceId);
+        loginService = baseService.login(mobileNo, password, deviceId, Constant.OS);
 
         loadingDialog.show();
         loginService.enqueue(new Callback<JSONObject>() {
@@ -211,8 +216,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
                     String code = response.body().getString("code");
                     String message = response.body().getString("message");
+                    String status = response.body().getString("status");
 
-                    if (code != null && code.equals("S00")) {
+                    if (code != null && code.equals("S00") && status.equals("Success")) {
                         JSONObject details = response.body().getJSONObject("details");
                         String sessionId = details.getString("sessionId");
 

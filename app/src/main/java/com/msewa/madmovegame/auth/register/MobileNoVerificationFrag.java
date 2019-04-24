@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
@@ -44,6 +45,8 @@ public class MobileNoVerificationFrag extends Fragment implements TextWatcher {
     private Button verifyBt;
     private TextInputEditText mobileNoEt;
     private TextInputLayout mobileTILayout;
+    private TextView countryCodeTv;
+    private String countryCode = "+91";
 
 
     private OnMobileNoVerificationFragInteractionListener mListener;
@@ -78,6 +81,7 @@ public class MobileNoVerificationFrag extends Fragment implements TextWatcher {
         verifyBt = view.findViewById(R.id.verify_button);
         mobileNoEt = view.findViewById(R.id.contact_et);
         mobileTILayout = view.findViewById(R.id.contact_t_i_layout);
+        countryCodeTv = view.findViewById(R.id.country_code_tv);
 
         mobileNoEt.addTextChangedListener(this);
         verifyBt.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +99,7 @@ public class MobileNoVerificationFrag extends Fragment implements TextWatcher {
 
         //init progress bar
         loadingDialog = new LoadingDialog(getActivity());
+        countryCodeTv.setText(countryCode);
 
         return view;
     }

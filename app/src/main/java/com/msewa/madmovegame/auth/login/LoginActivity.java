@@ -20,8 +20,7 @@ public class LoginActivity extends AppCompatActivity
 
         //Open Authentication Fragment
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_view, LoginFragment.newInstance())
-                .addToBackStack(null).commit();
+                .replace(R.id.container_view, LoginFragment.newInstance()).commit();
     }
 
     @Override

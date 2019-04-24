@@ -73,12 +73,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/max_player_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Max 7 Player from team"
             android:textColor="@color/white"
             android:textSize="@dimen/dim_10sp"
-            android:id="@+id/max_player_tv"
             app:layout_constraintLeft_toRightOf="@+id/player_v"
             app:layout_constraintRight_toLeftOf="@+id/credit_left_v"
             app:layout_constraintTop_toTopOf="parent" />
@@ -109,10 +109,10 @@
 
 
         <TextView
+            android:id="@+id/total_player_no_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="11"
-            android:id="@+id/total_player_no_tv"
             android:textColor="@color/white"
             android:textSize="@dimen/dim_15sp"
             app:layout_constraintLeft_toRightOf="@id/slash_symb"

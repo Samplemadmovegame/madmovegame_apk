@@ -19,18 +19,21 @@
     <item
         android:id="@+id/invite"
         android:icon="@drawable/invite_friends_icon"
-        android:title="@string/invite_ref"/>
+        android:title="@string/invite_ref" />
 
     <item
         android:id="@+id/my_setting"
         android:icon="@drawable/settings_iocn"
-        android:title="@string/my_setting"/>
+        android:title="@string/my_setting" />
 
     <item
         android:id="@+id/point"
         android:icon="@drawable/point_system_icon"
-        android:title="@string/point_system"/>
+        android:title="@string/point_system" />
 
-
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/point_system_icon"
+        android:title="@string/logout" />
 
 </menu>

@@ -23,11 +23,11 @@ public interface ApiServices {
 
     @FormUrlEncoded
     @POST("register")
-    Call<JSONObject> registerUser(@Field("firstName") String firstName, @Field("lastName") String lastName, @Field("email") String email, @Field("gender") String gender, @Field("contactNo") String contactNo, @Field("password") String password);
+    Call<JSONObject> registerUser(@Field("firstName") String firstName, @Field("lastName") String lastName, @Field("email") String email, @Field("gender") String gender, @Field("contactNo") String contactNo, @Field("password") String password, @Field("operatingSystem") String os);
 
     @FormUrlEncoded
     @POST("login/process")
-    Call<JSONObject> login(@Field("username") String mobileNo, @Field("password") String password, @Field("deviceId") String deviceId);
+    Call<JSONObject> login(@Field("username") String mobileNo, @Field("password") String password, @Field("deviceId") String deviceId, @Field("operatingSystem") String os);
 
     @FormUrlEncoded
     @POST("ChangePassword")

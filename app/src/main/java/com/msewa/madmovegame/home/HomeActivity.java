@@ -17,6 +17,7 @@ import android.widget.ImageView;
 
 import com.msewa.madmovegame.More.MoreFrag;
 import com.msewa.madmovegame.R;
+import com.msewa.madmovegame.auth.login.LoginActivity;
 import com.msewa.madmovegame.feed.FeedFrag;
 import com.msewa.madmovegame.matches.MatchesFrag;
 import com.msewa.madmovegame.navigation.BalanceFrag;
@@ -27,6 +28,7 @@ import com.msewa.madmovegame.navigation.PointSystemFrag;
 import com.msewa.madmovegame.navigation.RewardFrag;
 import com.msewa.madmovegame.navigation.UserFrag;
 import com.msewa.madmovegame.notification.NotificationActivity;
+import com.msewa.madmovegame.util.AppSharePref;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -137,6 +139,12 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.point) {
             intent.putExtra(NavigationActivity.PARAM, PointSystemFrag.TAG);
             startActivity(intent);
+
+        } else if (id == R.id.logout) {
+            //@TODO
+            AppSharePref.logout(getApplicationContext());
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
 
         }
 

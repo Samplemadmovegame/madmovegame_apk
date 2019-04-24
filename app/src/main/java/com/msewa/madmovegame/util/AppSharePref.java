@@ -103,4 +103,12 @@ public class AppSharePref {
         return new UserInfo(firstName, lastName, email, gender, mobileNo, password, sessionId);
     }
 
+
+    /**
+     * this method is used to clear all  locally stored  User Information in device.
+     */
+    public static void logout(Context context) {
+        getAppSharePref(context).edit().clear().apply();
+    }
+
 }

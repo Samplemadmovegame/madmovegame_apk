@@ -53,12 +53,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_view">
 
+            <FrameLayout
+                android:id="@+id/country_code_layout"
+                android:layout_width="@dimen/dim_50dp"
+                android:layout_height="@dimen/dim_50dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="@dimen/dim_5dp"
+                android:background="@drawable/curve_border_accent">
+
+                <TextView
+                    android:id="@+id/country_code_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_gravity="center"
+                    android:text="+91"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dim_17sp" />
+
+            </FrameLayout>
+
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/contact_t_i_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toRightOf="@+id/country_code_layout"
                 android:hint="@string/contact_mandatory">
 
                 <android.support.design.widget.TextInputEditText
